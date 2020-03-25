@@ -16,7 +16,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: ${({ theme }) => theme.fontColor};
+  color: ${({ theme }) => theme.secondaryColor};
   margin: 0;
   padding: 0;
 }

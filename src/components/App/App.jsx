@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-globals */
 import React from 'react';
 
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
@@ -6,7 +5,12 @@ import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 
 import GlobalStyle from '../../style/global.styles';
-import AppContainer from './App.styles';
+import {
+  AppContainer,
+  InformationContainer,
+  SavedPeopleContainer,
+  SearchPeopleContainer,
+} from './App.styles';
 
 const App = () => {
   return (
@@ -14,7 +18,11 @@ const App = () => {
       <GlobalStyle />
       <NavBar />
       <AppContainer>
-        <ErrorBoundary>Hello World!</ErrorBoundary>
+        <ErrorBoundary>
+          <SearchPeopleContainer />
+          <SavedPeopleContainer />
+          <InformationContainer />
+        </ErrorBoundary>
       </AppContainer>
       <Footer />
     </>
