@@ -1,17 +1,58 @@
+import { css } from 'styled-components';
+
+import mediaQueryHelper from './media-queries';
+
+const primaryColor = '#333333';
+const secondaryColor = '#696969';
+const sucessColor = '#228B22';
+const dangerColor = '#FF4500';
+const defaultColor = '#4169E1';
+const cardColor = '#FFFAFA';
+const altCardColor = '#DCDCDC';
+const fontColor = '#FFFFFF';
+const altFontColor = '#333333';
+const titleColor = '#FFD700';
+
+const defaultFontSize = '1rem';
+const midFontSize = '1.25rem';
+const bigFontSize = '1.5rem';
+const smallFontSize = '0.75rem';
+const xlFontSize = '2.25rem';
+
+const titleStyles = css`
+  margin: 0 0 2rem 0;
+  font-size: ${xlFontSize};
+  font-weight: bold;
+  text-transform: uppercase;
+
+  ${mediaQueryHelper(
+    'phone',
+    css`
+      font-size: ${defaultFontSize};
+    `
+  )};
+`;
+
+const gradientColorToTop = `linear-gradient(to top, ${primaryColor} 0%, ${secondaryColor} 100%)`;
+const gradientColorToBot = `linear-gradient(to bottom, ${primaryColor} 0%, ${secondaryColor} 100%)`;
+
 export default {
-  primaryColor: '#333333',
-  secondaryColor: '#696969',
-  sucessColor: '#228B22',
-  dangerColor: '#FF4500',
-  defaultColor: '#4169E1',
-  cardColor: '#FFFAFA',
-  altCardColor: '#DCDCDC',
-  fontColor: '#FFFFFF',
-  altFontColor: '#333333',
-  titleColor: '#FFD700',
-  defaultFontSize: '1rem',
-  midFontSize: '1.25rem',
-  bigFontSize: '1.5rem',
-  smallFontSize: '0.75rem',
-  xlFontSize: '2.25rem',
+  primaryColor,
+  secondaryColor,
+  sucessColor,
+  dangerColor,
+  defaultColor,
+  cardColor,
+  altCardColor,
+  fontColor,
+  altFontColor,
+  titleColor,
+  defaultFontSize,
+  midFontSize,
+  bigFontSize,
+  smallFontSize,
+  xlFontSize,
+  titleStyles,
+  gradientColorToTop,
+  gradientColorToBot,
 };
