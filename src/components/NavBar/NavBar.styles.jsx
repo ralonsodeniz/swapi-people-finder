@@ -14,7 +14,14 @@ const svgStyles = css`
     'phone',
     css`
       width: 2.5rem;
-      padding: 5px;
+      padding: 3px;
+    `
+  )};
+
+  ${mediaQueryHelper(
+    'phone-xs',
+    css`
+      width: 2rem;
     `
   )};
 `;
@@ -49,4 +56,18 @@ export const NavBarTitle = styled.h4`
   font-weight: bold;
   font-size: ${({ theme }) => theme.bigFontSize};
   color: ${({ theme }) => theme.titleColor};
+
+  ${mediaQueryHelper(
+    'phone',
+    css`
+      font-size: ${({ theme }) => theme.midFontSize};
+    `
+  )};
+
+  ${mediaQueryHelper(
+    'phone-xs',
+    css`
+      font-size: ${({ theme }) => theme.defaultFontSize};
+    `
+  )};
 `;
