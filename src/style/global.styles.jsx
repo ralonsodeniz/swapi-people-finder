@@ -27,7 +27,8 @@ code {
 }
 
 p,
-a {
+a,
+button {
   font-family: 'Montserrat', sans-serif;
   font-size: ${({ theme }) => theme.defaultFontSize};
   text-align: justify;
