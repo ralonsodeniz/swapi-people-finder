@@ -1,0 +1,17 @@
+export default {
+  primaryColor: '#333333',
+  secondaryColor: '#696969',
+  sucessColor: '#228B22',
+  dangerColor: '#FF4500',
+  defaultColor: '#4169E1',
+  cardColor: '#FFFAFA',
+  altCardColor: '#DCDCDC',
+  fontColor: '#FFFFFF',
+  altFontColor: '#333333',
+  titleColor: '#FFD700',
+  defaultFontSize: '1rem',
+  midFontSize: '1.25rem',
+  bigFontSize: '1.5rem',
+  smallFontSize: '0.75rem',
+  xlFontSize: '2.25rem',
+};
