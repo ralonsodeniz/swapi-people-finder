@@ -14,7 +14,7 @@ import {
 const Card = ({ name, imageUrl, handleShowDetails, handleRemove }) => {
   return (
     <CardContainer>
-      <CardImage alt="user" src={imageUrl} />
+      <CardImage alt="character" src={imageUrl} />
       <CardDetailsContainer>
         <CardDetailsTitle>
           {name}

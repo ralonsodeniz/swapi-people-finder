@@ -27,6 +27,7 @@ const svgStyles = css`
 `;
 
 export const NavBarContainer = styled.nav`
+  flex-shrink: 0;
   display: grid;
   grid-template: 5rem / repeat(3, auto);
   column-gap: 1.5rem;

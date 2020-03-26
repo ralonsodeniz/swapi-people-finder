@@ -16,6 +16,7 @@ const textStyles = css`
 
 export const FooterContainer = styled.footer`
   background: ${({ theme }) => theme.gradientColorToBot};
+  flex-shrink: 0;
   margin-top: auto;
   height: 5rem;
   display: flex;

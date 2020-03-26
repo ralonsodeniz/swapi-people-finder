@@ -3,6 +3,8 @@ import React from 'react';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
+import SavedPeople from '../SavedPeople/SavedPeople';
+import Information from '../Information/Information';
 
 import GlobalStyle from '../../style/global.styles';
 import {
@@ -12,6 +14,8 @@ import {
   SearchPeopleContainer,
 } from './App.styles';
 
+import cardListMock from '../../../__mocks__/cardListMock';
+
 const App = () => {
   return (
     <>
@@ -20,8 +24,12 @@ const App = () => {
       <AppContainer>
         <ErrorBoundary>
           <SearchPeopleContainer />
-          <SavedPeopleContainer />
-          <InformationContainer />
+          <SavedPeopleContainer>
+            <SavedPeople items={cardListMock} />
+          </SavedPeopleContainer>
+          <InformationContainer>
+            <Information />
+          </InformationContainer>
         </ErrorBoundary>
       </AppContainer>
       <Footer />

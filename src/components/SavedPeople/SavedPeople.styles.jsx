@@ -2,15 +2,38 @@ import styled, { css } from 'styled-components';
 
 import mediaQueryHelper from '../../style/media-queries';
 
+// export const SavedPeopleContainer = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   position: relative;
+//   background: ${({ theme }) => theme.secondaryColor};
+//   border-radius: 5px;
+// `;
+
 export const SavedPeopleContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template: auto / auto auto;
+  grid-template-areas:
+    'title filters'
+    'cardList cardList';
   position: relative;
   background: ${({ theme }) => theme.secondaryColor};
   border-radius: 5px;
+
+  ${mediaQueryHelper(
+    'tab-xl',
+    css`
+      grid-template: auto / auto;
+      grid-template-areas:
+        'title'
+        'filters'
+        'cardList';
+    `
+  )}
 `;
 
 export const SavedPeopleScroll = styled.div`
+  grid-area: cardList;
   display: grid;
   grid-template-columns: repeat(auto-fill, 15rem);
   grid-gap: 1.25rem;
@@ -103,6 +126,7 @@ export const SavedPeopleSpinnerContainer = styled.div`
 `;
 
 export const SavedPeopleTitle = styled.h2`
+  grid-area: title;
   ${({ theme }) => theme.titleStyles};
   padding-left: 1rem;
   margin: 1rem auto 0.75rem 0;
@@ -110,7 +134,16 @@ export const SavedPeopleTitle = styled.h2`
 `;
 
 export const SavedPeopleFiltersContainer = styled.div`
-  padding-left: 1rem;
+  grid-area: filters;
+  padding-right: 1rem;
   display: flex;
-  margin: 0 auto 0.75rem 0;
+  margin: 1rem 0 0.75rem auto;
+
+  ${mediaQueryHelper(
+    'tab-xl',
+    css`
+      margin: 0 auto 0.75rem 0;
+      padding: 0 0 0 1rem;
+    `
+  )};
 `;
