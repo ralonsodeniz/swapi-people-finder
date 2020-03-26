@@ -13,7 +13,15 @@ export const CardContainer = styled.div`
   border-radius: 5px;
 
   ${mediaQueryHelper(
-    'tab-port',
+    'small-desktop',
+    css`
+      width: 8rem;
+      height: 10.5rem;
+    `
+  )}
+
+  ${mediaQueryHelper(
+    'tab-xl',
     css`
       width: 12rem;
       height: 16rem;
@@ -21,7 +29,7 @@ export const CardContainer = styled.div`
   )};
 
   ${mediaQueryHelper(
-    'phone',
+    'tab-port',
     css`
       width: 8rem;
       height: 10.5rem;
@@ -34,14 +42,23 @@ export const CardImage = styled.img`
   object-position: 50% 50%;
   height: 15rem;
   border-radius: 5px 5px 0 0;
+
   ${mediaQueryHelper(
-    'tab-port',
+    'small-desktop',
+    css`
+      height: 8rem;
+    `
+  )}
+
+  ${mediaQueryHelper(
+    'tab-xl',
     css`
       height: 12rem;
     `
   )};
+
   ${mediaQueryHelper(
-    'phone',
+    'tab-port',
     css`
       height: 8rem;
     `
@@ -60,14 +77,21 @@ export const CardDetailsContainer = styled.div`
   color: ${({ theme }) => theme.primaryColor};
 
   ${mediaQueryHelper(
-    'tab-port',
+    'small-desktop',
+    css`
+      height: 2.5rem;
+    `
+  )}
+
+  ${mediaQueryHelper(
+    'tab-xl',
     css`
       height: 4rem;
     `
   )};
 
   ${mediaQueryHelper(
-    'phone',
+    'tab-port',
     css`
       height: 2.5rem;
     `
@@ -79,14 +103,21 @@ export const CardDetailsTitle = styled.h3`
   font-size: ${({ theme }) => theme.midFontSize};
 
   ${mediaQueryHelper(
-    'tab-port',
+    'small-desktop',
+    css`
+      font-size: ${({ theme }) => theme.smallFontSize};
+    `
+  )}
+
+  ${mediaQueryHelper(
+    'tab-xl',
     css`
       font-size: ${({ theme }) => theme.defaultFontSize};
     `
   )};
 
   ${mediaQueryHelper(
-    'phone',
+    'tab-port',
     css`
       font-size: ${({ theme }) => theme.smallFontSize};
     `
