@@ -1,4 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import mediaQueryHelper from '../../style/media-queries';
 
 export const AppContainer = styled.div`
   margin: 0 auto 0 auto;
@@ -15,6 +17,17 @@ export const AppContainer = styled.div`
     'saved information';
   grid-gap: 2rem;
   margin-bottom: 10px;
+
+  ${mediaQueryHelper(
+    'phone',
+    css`
+      grid-template: auto / auto;
+      grid-template-areas:
+        'search'
+        'saved'
+        'information';
+    `
+  )}
 `;
 
 export const SearchPeopleContainer = styled.div`

@@ -6,7 +6,14 @@ const smallButtonStyles = css`
   padding: 0.5rem;
 
   ${mediaQueryHelper(
-    'phone',
+    'small-desktop',
+    css`
+      padding: 3px;
+    `
+  )};
+
+  ${mediaQueryHelper(
+    'tab-port',
     css`
       padding: 3px;
     `
@@ -17,9 +24,16 @@ const bigButtonStyles = css`
   padding: 1rem;
 
   ${mediaQueryHelper(
-    'phone',
+    'small-desktop',
     css`
-      padding: 0.5rem;
+      padding: 0.75rem;
+    `
+  )};
+
+  ${mediaQueryHelper(
+    'tab-port',
+    css`
+      padding: 0.75rem;
     `
   )};
 `;
@@ -56,10 +70,11 @@ export default styled.button`
   padding: 1rem;
   font-size: ${({ theme }) => theme.defaultFontSize};
   cursor: pointer;
-  margin: 1px;
   border-radius: 5px;
   outline: none;
   border: none;
+
+  ${({ collapse }) => (collapse ? 'margin: 0' : 'margin: 1px')};
 
   ${getButtonSize}
   ${getButtonColors}
@@ -69,16 +84,16 @@ export default styled.button`
   }
 
   ${mediaQueryHelper(
-    'tab-port',
+    'small-desktop',
     css`
       font-size: ${({ theme }) => theme.smallFontSize};
     `
   )};
 
   ${mediaQueryHelper(
-    'phone',
+    'tab-xl',
     css`
-      font-size: ${({ theme }) => theme.xsFontSize};
+      font-size: ${({ theme }) => theme.smallFontSize};
     `
   )};
 `;

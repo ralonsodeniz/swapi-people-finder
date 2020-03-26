@@ -11,6 +11,7 @@ const cardColor = '#FFFAFA';
 const altCardColor = '#DCDCDC';
 const fontColor = '#FFFFFF';
 const titleColor = '#FFD700';
+const primaryColorOpacity = `${primaryColor}B3`;
 
 const gradientColorToTop = `linear-gradient(to top, ${primaryColor} 0%, ${secondaryColor} 100%)`;
 const gradientColorToBot = `linear-gradient(to bottom, ${primaryColor} 0%, ${secondaryColor} 100%)`;
@@ -26,6 +27,20 @@ const titleStyles = css`
   font-size: ${xlFontSize};
   font-weight: bold;
   text-transform: uppercase;
+
+  ${mediaQueryHelper(
+    'small-desktop',
+    css`
+      font-size: ${midFontSize};
+    `
+  )};
+
+  ${mediaQueryHelper(
+    'tab-port',
+    css`
+      font-size: ${midFontSize};
+    `
+  )};
 
   ${mediaQueryHelper(
     'phone',
@@ -72,6 +87,7 @@ export default {
   altCardColor,
   fontColor,
   titleColor,
+  primaryColorOpacity,
   defaultFontSize,
   midFontSize,
   bigFontSize,

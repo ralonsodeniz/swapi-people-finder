@@ -43,8 +43,8 @@ export default (breakpoint, breakpointStyle) => {
       `;
     case 'small-desktop':
       return css`
-        @media screen and (min-width: 81.25em) {
-          /*1300px*/
+        @media screen and (max-width: 85.62em) and (min-width: 76rem) {
+          /*1370px*/
           ${breakpointStyle}
         }
       `;
