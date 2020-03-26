@@ -9,14 +9,13 @@ export const AppContainer = styled.div`
   display: grid;
   align-content: center;
   justify-content: center;
-  justify-items: center;
-  align-items: center;
+  justify-items: start;
+  align-items: start;
   grid-template: auto / auto auto;
   grid-template-areas:
     'search information'
     'saved information';
-  grid-column-gap: 5rem;
-  grid-row-gap: 2rem;
+  grid-gap: 3rem;
   margin-bottom: 10px;
 
   ${mediaQueryHelper(
@@ -37,6 +36,7 @@ export const AppContainer = styled.div`
         'search'
         'saved'
         'information';
+      grid-gap: 1.5rem;
     `
   )}
 `;

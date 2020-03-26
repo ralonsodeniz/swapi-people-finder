@@ -18,7 +18,7 @@ export const FooterContainer = styled.footer`
   background: ${({ theme }) => theme.gradientColorToBot};
   flex-shrink: 0;
   margin-top: auto;
-  height: 5rem;
+  height: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +26,7 @@ export const FooterContainer = styled.footer`
   ${mediaQueryHelper(
     'phone-xs',
     css`
-      height: 4.5rem;
+      height: 2.5rem;
     `
   )}
 `;

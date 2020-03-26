@@ -5,6 +5,7 @@ import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 import SavedPeople from '../SavedPeople/SavedPeople';
 import Information from '../Information/Information';
+import SearchPeople from '../SearchPeople/SearchPeople';
 
 import GlobalStyle from '../../style/global.styles';
 import {
@@ -21,17 +22,19 @@ const App = () => {
     <>
       <GlobalStyle />
       <NavBar />
-      <AppContainer>
-        <ErrorBoundary>
-          <SearchPeopleContainer />
+      <ErrorBoundary>
+        <AppContainer>
+          <SearchPeopleContainer>
+            <SearchPeople loading={false} />
+          </SearchPeopleContainer>
           <SavedPeopleContainer>
             <SavedPeople items={cardListMock} />
           </SavedPeopleContainer>
           <InformationContainer>
             <Information />
           </InformationContainer>
-        </ErrorBoundary>
-      </AppContainer>
+        </AppContainer>
+      </ErrorBoundary>
       <Footer />
     </>
   );

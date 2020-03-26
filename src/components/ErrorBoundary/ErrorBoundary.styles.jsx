@@ -5,7 +5,7 @@ import mediaQueryHelper from '../../style/media-queries';
 import DeathStar from '../../../assets/death-star.svg';
 
 export const ErrorContainer = styled.header`
-  margin: 0 auto 0 auto;
+  margin: auto;
   width: 600px;
   display: grid;
   justify-items: center;
@@ -49,4 +49,5 @@ export const ErrorSvg = styled(DeathStar)`
 export const ErrorDescription = styled.p`
   grid-area: description;
   line-height: 1.5rem;
+  max-width: 25rem;
 `;
