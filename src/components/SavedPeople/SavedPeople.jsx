@@ -14,9 +14,17 @@ import {
 import CustomButton from '../CustomButton/CustomButton';
 
 const SavedPeople = ({ items, loading }) => {
-  const CardsMarkUp = items.map(item => {
-    const { name, imageUrl, id } = item;
-    return <Card key={id} imageUrl={imageUrl} name={name} />;
+  const CardsMarkUp = items.map((item, itemIndex) => {
+    const { name, imageUrl } = item;
+    return (
+      <Card
+        key={itemIndex}
+        imageUrl={imageUrl}
+        name={name}
+        handleRemove={() => {}}
+        handleShowDetails={() => {}}
+      />
+    );
   });
 
   return (

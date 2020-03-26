@@ -5,18 +5,29 @@ import mediaQueryHelper from '../../style/media-queries';
 export const AppContainer = styled.div`
   margin: 0 auto 0 auto;
   max-width: 1200px;
-  height: 100%;
+  flex-grow: 1;
   display: grid;
   align-content: center;
   justify-content: center;
   justify-items: center;
   align-items: center;
-  grid-template: auto / 2fr 1fr;
+  grid-template: auto / auto auto;
   grid-template-areas:
     'search information'
     'saved information';
-  grid-gap: 2rem;
+  grid-column-gap: 5rem;
+  grid-row-gap: 2rem;
   margin-bottom: 10px;
+
+  ${mediaQueryHelper(
+    'tab-xl',
+    css`
+      grid-template: auto / auto auto;
+      grid-template-areas:
+        'search search'
+        'saved information';
+    `
+  )}
 
   ${mediaQueryHelper(
     'phone',

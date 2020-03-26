@@ -20,7 +20,7 @@ const defaultFontSize = '1rem';
 const midFontSize = '1.25rem';
 const bigFontSize = '1.5rem';
 const smallFontSize = '0.75rem';
-const xlFontSize = '2.25rem';
+const xlFontSize = '2rem';
 
 const titleStyles = css`
   margin: 0 0 2rem 0;

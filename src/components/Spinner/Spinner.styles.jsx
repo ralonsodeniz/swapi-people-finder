@@ -14,7 +14,7 @@ export const SpinnerContainer = styled.div`
   height: 50px;
   border: 3px solid ${({ theme }) => theme.titleColor};
   border-radius: 50%;
-  border-top-color: ${({ theme }) => theme.darkGrey};
+  border-top-color: ${({ theme }) => theme.secondaryColor};
   animation: spin 1s ease-in-out infinite;
   -webkit-animation: spin 1s ease-in-out infinite;
 
