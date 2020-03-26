@@ -1,5 +1,9 @@
 import React from 'react';
 
+import InformationSkeleton from '../InformationSkeleton/InformationSkeleton';
+
+import detailTitles from '../../helpers/detailTitles';
+
 import {
   InformationContainer,
   CharacterDetailsContainer,
@@ -10,28 +14,33 @@ import {
   InformationTitle,
 } from './Information.styles';
 
-import characterInformationMock from '../../../__mocks__/characterInformationMock';
-
 const Information = () => {
-  return (
+  const selectedCharacter = [];
+
+  const characterInfoMarkUp = Object.entries(selectedCharacter).reduce(
+    (accumulator, detail, detailIndex) => {
+      const [key, value] = detail;
+      if (key !== 'name')
+        accumulator.push(
+          <CharacterInfo key={detailIndex}>
+            <CharacterInfoTitle>{detailTitles[key]}</CharacterInfoTitle>
+            <span>: {value}</span>
+          </CharacterInfo>
+        );
+      return accumulator;
+    },
+    []
+  );
+
+  return selectedCharacter.length ? (
     <InformationContainer>
       <InformationTitle>Information about...</InformationTitle>
-      <InformationImage alt="character" src="http://facetheforce.today/c3po" />
-      <CharacterName>{characterInformationMock.name}</CharacterName>
-      <CharacterDetailsContainer>
-        {Object.entries(characterInformationMock).reduce((accumulator, detail, detailIndex) => {
-          const [key, value] = detail;
-          if (key !== 'name')
-            accumulator.push(
-              <CharacterInfo key={detailIndex}>
-                <CharacterInfoTitle>{key}</CharacterInfoTitle>
-                <span>: {value}</span>
-              </CharacterInfo>
-            );
-          return accumulator;
-        }, [])}
-      </CharacterDetailsContainer>
+      <InformationImage alt="character" src={selectedCharacter.imageUrl} />
+      <CharacterName>{selectedCharacter.name}</CharacterName>
+      <CharacterDetailsContainer>{characterInfoMarkUp}</CharacterDetailsContainer>
     </InformationContainer>
+  ) : (
+    <InformationSkeleton />
   );
 };
 

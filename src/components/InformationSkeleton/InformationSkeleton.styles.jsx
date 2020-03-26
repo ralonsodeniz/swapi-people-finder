@@ -12,7 +12,7 @@ const smallTableStyles = css`
   font-size: ${({ theme }) => theme.smallFontSize};
 `;
 
-export const InformationContainer = styled.div`
+export const InformationSkeletonContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,12 +22,12 @@ export const InformationContainer = styled.div`
   border-radius: 5px;
 `;
 
-export const InformationTitle = styled.h2`
+export const InformationSkeletonTitle = styled.h2`
   ${titlesStyles};
   color: ${({ theme }) => theme.titleColor};
 `;
 
-export const InformationImage = styled.img`
+export const InformationSkeletonImage = styled.img`
   width: 20rem;
   height: 20rem;
   object-fit: cover;
@@ -99,7 +99,6 @@ export const CharacterInfo = styled.div`
   padding: 1rem;
   font-size: ${({ theme }) => theme.defaultFontSize};
   border-bottom: 1px solid ${({ theme }) => theme.primaryColor};
-  color: ${({ theme }) => theme.titleColor};
 
   &:last-child {
     border-bottom: none;
@@ -120,6 +119,32 @@ export const CharacterInfo = styled.div`
   )};
 `;
 
-export const CharacterInfoTitle = styled.span`
-  font-weight: bolder;
+export const CharacterInfoPlaceholder = styled.div`
+  border-radius: 5px;
+  background-color: ${({ theme }) => theme.titleColor};
+  width: 20rem;
+  height: 1rem;
+
+  ${mediaQueryHelper(
+    'small-desktop',
+    css`
+      width: 13.8rem;
+      height: 0.5rem;
+    `
+  )};
+
+  ${mediaQueryHelper(
+    'tab-port',
+    css`
+      width: 13.8rem;
+      height: 0.5rem;
+    `
+  )};
+
+  ${mediaQueryHelper(
+    'phone-xs',
+    css`
+      width: 13.6rem;
+    `
+  )};
 `;

@@ -41,6 +41,10 @@ const bigButtonStyles = css`
 const getButtonColors = props => {
   switch (props.variant) {
     case 'default':
+      if (props.selected)
+        return css`
+          ${({ theme }) => theme.selectedButtonStyles}
+        `;
       return css`
         ${({ theme }) => theme.darkButtonStyles}
       `;

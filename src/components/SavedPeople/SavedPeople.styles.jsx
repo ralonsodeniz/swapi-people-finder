@@ -2,14 +2,6 @@ import styled, { css } from 'styled-components';
 
 import mediaQueryHelper from '../../style/media-queries';
 
-// export const SavedPeopleContainer = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   position: relative;
-//   background: ${({ theme }) => theme.secondaryColor};
-//   border-radius: 5px;
-// `;
-
 export const SavedPeopleContainer = styled.div`
   display: grid;
   grid-template: auto / auto auto;
@@ -66,7 +58,6 @@ export const SavedPeopleScroll = styled.div`
   ${mediaQueryHelper(
     'tab-port',
     css`
-      padding: 0 0 0.5rem 1rem;
       grid-template-columns: repeat(auto-fill, 8rem);
       height: 22.5rem;
       width: 18.5rem;
@@ -112,19 +103,6 @@ export const SavedPeopleScroll = styled.div`
   }
 `;
 
-export const SavedPeopleSpinnerContainer = styled.div`
-  background-color: ${({ theme }) => theme.primaryColorOpacity};
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-`;
-
 export const SavedPeopleTitle = styled.h2`
   grid-area: title;
   ${({ theme }) => theme.titleStyles};
@@ -146,4 +124,9 @@ export const SavedPeopleFiltersContainer = styled.div`
       padding: 0 0 0 1rem;
     `
   )};
+`;
+
+export const SavedPeopleEmptyText = styled.p`
+  font-size: ${({ theme }) => theme.defaultFontSize};
+  color: ${({ theme }) => theme.primaryColor};
 `;

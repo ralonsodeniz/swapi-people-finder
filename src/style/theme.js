@@ -8,10 +8,11 @@ const saveColor = '#228B22';
 const removeColor = '#FF4500';
 const defaultColor = '#4169E1';
 const cardColor = '#FFFAFA';
-const altCardColor = '#DCDCDC';
-const fontColor = '#FFFFFF';
+const altCardColor = '#f2f2f2';
+const whiteColor = '#FFFFFF';
 const titleColor = '#FFD700';
 const primaryColorOpacity = `${primaryColor}B3`;
+const tableHoverColor = '#DCDCDC';
 
 const gradientColorToTop = `linear-gradient(to top, ${primaryColor} 0%, ${secondaryColor} 100%)`;
 const gradientColorToBot = `linear-gradient(to bottom, ${primaryColor} 0%, ${secondaryColor} 100%)`;
@@ -53,28 +54,21 @@ const titleStyles = css`
 const darkButtonStyles = css`
   color: ${titleColor};
   background-color: ${primaryColor};
+`;
 
-  &:active {
-    border: 1px solid ${titleColor};
-  }
+const selectedButtonStyles = css`
+  color: ${primaryColor};
+  background-color: ${titleColor};
 `;
 
 const saveButtonStyles = css`
-  color: ${fontColor};
+  color: ${whiteColor};
   background-color: ${saveColor};
-
-  &:active {
-    border: 1px solid ${secondaryColor};
-  }
 `;
 
 const removeButtonStyles = css`
-  color: ${fontColor};
+  color: ${whiteColor};
   background-color: ${removeColor};
-
-  &:active {
-    border: 1px solid ${secondaryColor};
-  }
 `;
 
 export default {
@@ -85,9 +79,10 @@ export default {
   defaultColor,
   cardColor,
   altCardColor,
-  fontColor,
+  whiteColor,
   titleColor,
   primaryColorOpacity,
+  tableHoverColor,
   defaultFontSize,
   midFontSize,
   bigFontSize,
@@ -97,6 +92,7 @@ export default {
   gradientColorToTop,
   gradientColorToBot,
   darkButtonStyles,
+  selectedButtonStyles,
   saveButtonStyles,
   removeButtonStyles,
 };
