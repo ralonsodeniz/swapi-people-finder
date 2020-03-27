@@ -2,49 +2,10 @@ import styled, { css } from 'styled-components';
 
 import mediaQueryHelper from '../../style/media-queries';
 
-const smallButtonStyles = css`
-  padding: 0.5rem;
-
-  ${mediaQueryHelper(
-    'small-desktop',
-    css`
-      padding: 3px;
-    `
-  )};
-
-  ${mediaQueryHelper(
-    'tab-port',
-    css`
-      padding: 3px;
-    `
-  )};
-`;
-
-const bigButtonStyles = css`
-  padding: 1rem;
-
-  ${mediaQueryHelper(
-    'small-desktop',
-    css`
-      padding: 0.75rem;
-    `
-  )};
-
-  ${mediaQueryHelper(
-    'tab-port',
-    css`
-      padding: 0.75rem;
-    `
-  )};
-`;
-
 const getButtonColors = props => {
   switch (props.variant) {
     case 'default':
-      if (props.selected)
-        return css`
-          ${({ theme }) => theme.selectedButtonStyles}
-        `;
+      if (props.selected) return css``;
       return css`
         ${({ theme }) => theme.darkButtonStyles}
       `;
@@ -64,7 +25,24 @@ const getButtonColors = props => {
 };
 
 const getButtonSize = props => {
-  return props.size === 'small' ? smallButtonStyles : bigButtonStyles;
+  switch (props.size) {
+    case 'small':
+      return css`
+        ${({ theme }) => theme.smallButtonStyles}
+      `;
+    case 'medium':
+      return css`
+        ${({ theme }) => theme.mediumButtonStyles}
+      `;
+    case 'big':
+      return css`
+        ${({ theme }) => theme.bigButtonStyles}
+      `;
+    default:
+      return css`
+        ${({ theme }) => theme.smallButtonStyles}
+      `;
+  }
 };
 
 export default styled.button`
@@ -80,8 +58,10 @@ export default styled.button`
 
   ${({ collapse }) => (collapse ? 'margin: 0' : 'margin: 1px')};
 
-  ${getButtonSize}
-  ${getButtonColors}
+  ${getButtonSize};
+  ${getButtonColors};
+  ${({ selected, theme }) => selected && theme.selectedButtonStyles};
+  ${({ disabled, theme }) => disabled && theme.disabledButtonStyles};
 
   &:active {
     border-style: none;

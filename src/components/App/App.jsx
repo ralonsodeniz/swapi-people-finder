@@ -8,14 +8,7 @@ import Information from '../Information/Information';
 import SearchPeople from '../SearchPeople/SearchPeople';
 
 import GlobalStyle from '../../style/global.styles';
-import {
-  AppContainer,
-  InformationContainer,
-  SavedPeopleContainer,
-  SearchPeopleContainer,
-} from './App.styles';
-
-import cardListMock from '../../../__mocks__/cardListMock';
+import AppContainer from './App.styles';
 
 const App = () => {
   return (
@@ -24,15 +17,9 @@ const App = () => {
       <NavBar />
       <ErrorBoundary>
         <AppContainer>
-          <SearchPeopleContainer>
-            <SearchPeople loading={false} />
-          </SearchPeopleContainer>
-          <SavedPeopleContainer>
-            <SavedPeople items={cardListMock} />
-          </SavedPeopleContainer>
-          <InformationContainer>
-            <Information />
-          </InformationContainer>
+          <SearchPeople />
+          <SavedPeople />
+          <Information />
         </AppContainer>
       </ErrorBoundary>
       <Footer />

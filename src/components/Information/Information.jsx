@@ -1,8 +1,9 @@
 import React from 'react';
 
-import InformationSkeleton from '../InformationSkeleton/InformationSkeleton';
-
 import detailTitles from '../../helpers/detailTitles';
+import getCharImage from '../../helpers/getCharImage';
+
+import InformationSkeleton from '../InformationSkeleton/InformationSkeleton';
 
 import {
   InformationContainer,
@@ -16,6 +17,8 @@ import {
 
 const Information = () => {
   const selectedCharacter = [];
+
+  const imageUrl = selectedCharacter.length && getCharImage(selectedCharacter.name, '320');
 
   const characterInfoMarkUp = Object.entries(selectedCharacter).reduce(
     (accumulator, detail, detailIndex) => {
@@ -35,7 +38,7 @@ const Information = () => {
   return selectedCharacter.length ? (
     <InformationContainer>
       <InformationTitle>Information about...</InformationTitle>
-      <InformationImage alt="character" src={selectedCharacter.imageUrl} />
+      <InformationImage alt="character" src={imageUrl} />
       <CharacterName>{selectedCharacter.name}</CharacterName>
       <CharacterDetailsContainer>{characterInfoMarkUp}</CharacterDetailsContainer>
     </InformationContainer>

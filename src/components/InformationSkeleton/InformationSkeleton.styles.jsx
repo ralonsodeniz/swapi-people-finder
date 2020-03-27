@@ -13,6 +13,7 @@ const smallTableStyles = css`
 `;
 
 export const InformationSkeletonContainer = styled.div`
+  grid-area: information;
   display: flex;
   flex-direction: column;
   align-items: center;

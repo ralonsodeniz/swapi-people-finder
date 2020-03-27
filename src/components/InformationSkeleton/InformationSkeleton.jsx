@@ -23,7 +23,7 @@ const InformationSkeleton = () => {
     <InformationSkeletonContainer>
       <InformationSkeletonTitle>Information about...</InformationSkeletonTitle>
       <InformationSkeletonImage alt="character" src={NoImg} />
-      <CharacterName>No one selected...</CharacterName>
+      <CharacterName>No one is selected...</CharacterName>
       <CharacterDetailsContainer>{characterDetailsPlaceholderMarkUp}</CharacterDetailsContainer>
     </InformationSkeletonContainer>
   );

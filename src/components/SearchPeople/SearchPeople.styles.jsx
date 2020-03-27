@@ -3,39 +3,65 @@ import styled, { css } from 'styled-components';
 import mediaQueryHelper from '../../style/media-queries';
 
 export const SearchPeopleContainer = styled.div`
+  grid-area: search;
+  height: 25rem;
   display: grid;
   grid-template: auto / auto auto;
   grid-template-areas:
     'title searchbox'
-    'table table';
+    'table table'
+    'pagination pagination';
   position: relative;
   background: ${({ theme }) => theme.secondaryColor};
   border-radius: 5px;
 
   ${mediaQueryHelper(
+    'small-desktop',
+    css`
+      height: 17.5rem;
+    `
+  )};
+
+  ${mediaQueryHelper(
+    'tab-xl',
+    css`
+      height: 25rem;
+    `
+  )};
+
+  ${mediaQueryHelper(
+    'tab-port',
+    css`
+      height: 17.5rem;
+    `
+  )};
+
+  ${mediaQueryHelper(
     'phone',
     css`
+      height: 19rem;
       grid-template: auto / auto;
       grid-template-areas:
         'title'
         'searchbox'
-        'table';
+        'table'
+        'pagination';
     `
   )}
 `;
 
 export const TableScroll = styled.div`
   grid-area: table;
-  padding: 0 0 1rem 1rem;
+  padding: 0 0 0 1rem;
   width: 65rem;
-  height: 20rem;
-  overflow-x: auto;
+  height: 16rem;
+  overflow-x: hidden;
   overflow-y: auto;
 
   ${mediaQueryHelper(
     'small-desktop',
     css`
-      height: 12.5rem;
+      height: 9.5rem;
       width: 45.15rem;
       font-size: ${({ theme }) => theme.smallFontSize};
     `
@@ -45,14 +71,14 @@ export const TableScroll = styled.div`
     'tab-xl',
     css`
       width: 57rem;
-      height: 18rem;
+      height: 15rem;
     `
   )};
 
   ${mediaQueryHelper(
     'tab-port',
     css`
-      height: 12.5rem;
+      height: 9.5rem;
       width: 40.75rem;
       font-size: ${({ theme }) => theme.smallFontSize};
     `
@@ -61,7 +87,6 @@ export const TableScroll = styled.div`
   ${mediaQueryHelper(
     'phone',
     css`
-      height: 10.5rem;
       width: 18.3rem;
     `
   )};
@@ -144,6 +169,20 @@ export const TableHeader = styled.thead`
     background-color: ${({ theme }) => theme.cardColor};
     color: ${({ theme }) => theme.primaryColor};
     width: max-content;
+
+    ${mediaQueryHelper(
+      'small-desktop',
+      css`
+        padding: 0.5rem 0 0.5rem 0.5rem;
+      `
+    )};
+
+    ${mediaQueryHelper(
+      'tab-port',
+      css`
+        padding: 0.5rem 0 0.5rem 0.5rem;
+      `
+    )};
   }
 `;
 
@@ -153,6 +192,20 @@ export const TableBody = styled.tbody`
     width: max-content;
     border: none;
     padding: 0.5rem 1rem 0.5rem 1rem;
+
+    ${mediaQueryHelper(
+      'small-desktop',
+      css`
+        padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+      `
+    )};
+
+    ${mediaQueryHelper(
+      'tab-port',
+      css`
+        padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+      `
+    )};
   }
 
   & tr:nth-child(odd) {
@@ -187,7 +240,9 @@ export const SearchPeopleTitle = styled.h2`
 
 export const SearchPeopleSearchBox = styled.div`
   grid-area: searchbox;
-  padding-right: 0.5rem;
+  display: flex;
+  align-items: center;
+  padding-right: 1rem;
   margin: 1rem 0 0.75rem auto;
 
   ${mediaQueryHelper(
@@ -202,4 +257,10 @@ export const SearchPeopleSearchBox = styled.div`
 export const SearchPeopleButtonsContainer = styled.div`
   display: flex;
   justify-content: flex-end;
+`;
+
+export const TablePaginationContainer = styled.div`
+  grid-area: pagination;
+  padding-left: 1rem;
+  display: flex;
 `;

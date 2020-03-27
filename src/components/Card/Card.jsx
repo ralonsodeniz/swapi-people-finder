@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import getCharImage from '../../helpers/getCharImage';
+
 import CustomButton from '../CustomButton/CustomButton';
 
 import {
@@ -11,7 +13,11 @@ import {
   CardDetailsButtonsContainer,
 } from './Card.styles';
 
-const Card = ({ name, imageUrl, handleShowDetails, handleRemove }) => {
+const Card = ({ character }) => {
+  const { name } = character;
+
+  const imageUrl = name && getCharImage(name, '240');
+
   return (
     <CardContainer>
       <CardImage alt="character" src={imageUrl} />
@@ -19,10 +25,10 @@ const Card = ({ name, imageUrl, handleShowDetails, handleRemove }) => {
         <CardDetailsTitle>
           {name}
           <CardDetailsButtonsContainer>
-            <CustomButton type="button" variant="default" size="small" onClick={handleShowDetails}>
+            <CustomButton type="button" variant="default" size="small" onClick={() => {}}>
               Details
             </CustomButton>
-            <CustomButton type="button" variant="remove" size="small" onClick={handleRemove}>
+            <CustomButton type="button" variant="remove" size="small" onClick={() => {}}>
               Remove
             </CustomButton>
           </CardDetailsButtonsContainer>
@@ -33,10 +39,16 @@ const Card = ({ name, imageUrl, handleShowDetails, handleRemove }) => {
 };
 
 Card.propTypes = {
-  name: PropTypes.string.isRequired,
-  imageUrl: PropTypes.string.isRequired,
-  handleShowDetails: PropTypes.func.isRequired,
-  handleRemove: PropTypes.func.isRequired,
+  character: PropTypes.shape({
+    name: PropTypes.string,
+    height: PropTypes.number,
+    mass: PropTypes.number,
+    hairColor: PropTypes.string,
+    skinColor: PropTypes.string,
+    eyeColor: PropTypes.string,
+    birthYear: PropTypes.number,
+    gender: PropTypes.string,
+  }).isRequired,
 };
 
 export default Card;
