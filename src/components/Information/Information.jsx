@@ -1,5 +1,7 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
+import { selectCharacterSelected } from '../../redux/reducers/dataReducer';
 import detailTitles from '../../helpers/detailTitles';
 import getCharImage from '../../helpers/getCharImage';
 
@@ -16,30 +18,29 @@ import {
 } from './Information.styles';
 
 const Information = () => {
-  const selectedCharacter = [];
+  const characterSelected = useSelector(selectCharacterSelected);
 
-  const imageUrl = selectedCharacter.length && getCharImage(selectedCharacter.name, '320');
+  const imageUrl = characterSelected && getCharImage(characterSelected.name, '320');
 
-  const characterInfoMarkUp = Object.entries(selectedCharacter).reduce(
-    (accumulator, detail, detailIndex) => {
+  const characterInfoMarkUp =
+    characterSelected &&
+    Object.entries(characterSelected).reduce((accumulator, detail) => {
       const [key, value] = detail;
       if (key !== 'name')
         accumulator.push(
-          <CharacterInfo key={detailIndex}>
+          <CharacterInfo key={key}>
             <CharacterInfoTitle>{detailTitles[key]}</CharacterInfoTitle>
             <span>: {value}</span>
           </CharacterInfo>
         );
       return accumulator;
-    },
-    []
-  );
+    }, []);
 
-  return selectedCharacter.length ? (
+  return characterSelected ? (
     <InformationContainer>
       <InformationTitle>Information about...</InformationTitle>
       <InformationImage alt="character" src={imageUrl} />
-      <CharacterName>{selectedCharacter.name}</CharacterName>
+      <CharacterName>{characterSelected.name}</CharacterName>
       <CharacterDetailsContainer>{characterInfoMarkUp}</CharacterDetailsContainer>
     </InformationContainer>
   ) : (

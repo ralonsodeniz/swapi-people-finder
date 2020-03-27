@@ -59,6 +59,7 @@ const darkButtonStyles = css`
 const selectedButtonStyles = css`
   color: ${primaryColor};
   background-color: ${titleColor};
+  cursor: default;
 `;
 
 const saveButtonStyles = css`

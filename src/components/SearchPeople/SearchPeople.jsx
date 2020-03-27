@@ -1,4 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+
+import {
+  selectSearchArray,
+  selectSavedArray,
+  selectLoadingData,
+} from '../../redux/reducers/dataReducer';
+import { fetchApiStart, setSeachText } from '../../redux/actions/dataActions';
+import { getFilteredSearchArray } from '../../helpers/filters';
 
 import Spinner from '../Spinner/Spinner';
 import SearchBox from '../SearchBox/SearchBox';
@@ -18,13 +28,19 @@ import {
   TablePaginationContainer,
 } from './SearchPeople.styles';
 
-// import cardListMock from '../../../__mocks__/cardListMock';
+const selectSearchPeopleData = createStructuredSelector({
+  searchArray: selectSearchArray,
+  savedArray: selectSavedArray,
+  loadingData: selectLoadingData,
+});
 
 const SearchPeople = () => {
+  const dispatch = useDispatch();
   const [viewWidth, setViewWidth] = useState(0);
   const [searchText, setSearchText] = useState('');
-  const unsavedPeople = [];
-  const loading = false;
+  const { searchArray, savedArray, loadingData } = useSelector(selectSearchPeopleData);
+
+  const filteredSearchArray = getFilteredSearchArray(searchArray, savedArray);
 
   useEffect(() => {
     const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
@@ -35,6 +51,12 @@ const SearchPeople = () => {
     const { value } = event.target;
     setSearchText(value);
   };
+
+  const handleSearch = useCallback(() => {
+    dispatch(fetchApiStart(`https://swapi.co/api/people/?search=${searchText}`));
+    dispatch(setSeachText(searchText));
+    setSearchText('');
+  }, [dispatch, searchText, fetchApiStart, setSearchText]);
 
   const tableHeaderMarkUp =
     viewWidth <= 600 ? (
@@ -53,9 +75,9 @@ const SearchPeople = () => {
       </tr>
     );
 
-  const tableBodyMarkUp = unsavedPeople.length ? (
-    unsavedPeople.map((character, characterIndex) => (
-      <Character character={character} viewWidth={viewWidth} key={characterIndex} />
+  const tableBodyMarkUp = filteredSearchArray.length ? (
+    filteredSearchArray.map(character => (
+      <Character character={character} viewWidth={viewWidth} key={character.name} />
     ))
   ) : (
     <tr>
@@ -65,7 +87,7 @@ const SearchPeople = () => {
 
   return (
     <SearchPeopleContainer>
-      {(loading || viewWidth === 0) && (
+      {(loadingData || viewWidth === 0) && (
         <SearchPeopleSpinnerContainer>
           <Spinner />
         </SearchPeopleSpinnerContainer>
@@ -83,7 +105,7 @@ const SearchPeople = () => {
           type="button"
           variant="default"
           size={viewWidth < 1400 ? 'medium' : 'small'}
-          onClick={() => {}}
+          onClick={handleSearch}
         >
           Search
         </CustomButton>

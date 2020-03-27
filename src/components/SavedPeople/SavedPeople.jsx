@@ -1,4 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+
+import { selectSavedArray, selectSavedFilter } from '../../redux/reducers/dataReducer';
+import { getFilterArray, getFilteredSavedArray } from '../../helpers/filters';
 
 import Card from '../Card/Card';
 import FilterBox from './FilterBox';
@@ -11,12 +16,21 @@ import {
   SavedPeopleEmptyText,
 } from './SavedPeople.styles';
 
-const SavedPeople = () => {
-  const savedPeople = [];
+const selectSavedPeopleData = createStructuredSelector({
+  savedArray: selectSavedArray,
+  savedFilter: selectSavedFilter,
+});
 
-  const CardsMarkUp = savedPeople.length ? (
-    savedPeople.map((character, characterIndex) => {
-      return <Card key={characterIndex} character={character} />;
+const SavedPeople = () => {
+  const { savedArray, savedFilter } = useSelector(selectSavedPeopleData);
+
+  const filterArray = getFilterArray(savedArray);
+
+  const filteredSavedArray = getFilteredSavedArray(savedArray, savedFilter);
+
+  const CardsMarkUp = filteredSavedArray.length ? (
+    filteredSavedArray.map(character => {
+      return <Card key={character.name} character={character} />;
     })
   ) : (
     <SavedPeopleEmptyText>You did not save any people yet!</SavedPeopleEmptyText>
@@ -26,7 +40,7 @@ const SavedPeople = () => {
     <SavedPeopleContainer>
       <SavedPeopleTitle>Saved people</SavedPeopleTitle>
       <SavedPeopleFiltersContainer>
-        <FilterBox genderArray={['male', 'female']} />
+        <FilterBox filterArray={filterArray} />
       </SavedPeopleFiltersContainer>
       <SavedPeopleScroll>{CardsMarkUp}</SavedPeopleScroll>
     </SavedPeopleContainer>

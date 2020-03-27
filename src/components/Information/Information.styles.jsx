@@ -82,14 +82,14 @@ export const CharacterDetailsContainer = styled.div`
   ${mediaQueryHelper(
     'tab-port',
     css`
-      width: 17.25rem;
+      width: 17.13rem;
     `
   )};
 
   ${mediaQueryHelper(
     'phone-xs',
     css`
-      width: 17rem;
+      width: 16.73rem;
     `
   )};
 `;
