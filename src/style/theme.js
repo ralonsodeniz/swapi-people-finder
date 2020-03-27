@@ -71,6 +71,74 @@ const removeButtonStyles = css`
   background-color: ${removeColor};
 `;
 
+const disabledButtonStyles = css`
+  color: ${primaryColor};
+  background-color: ${secondaryColor};
+  box-shadow: inset 0px 0px 0px 1px ${primaryColor};
+  cursor: default;
+`;
+
+const smallButtonStyles = css`
+  padding: 0.5rem;
+
+  ${mediaQueryHelper(
+    'small-desktop',
+    css`
+      padding: 3px;
+    `
+  )};
+
+  ${mediaQueryHelper(
+    'tab-port',
+    css`
+      padding: 3px;
+    `
+  )};
+`;
+
+const mediumButtonStyles = css`
+  padding: 1rem;
+
+  ${mediaQueryHelper(
+    'small-desktop',
+    css`
+      padding: 0.5rem;
+    `
+  )};
+
+  ${mediaQueryHelper(
+    'tab-xl',
+    css`
+      padding: 0.5rem;
+    `
+  )};
+
+  ${mediaQueryHelper(
+    'tab-port',
+    css`
+      padding: 0.5rem;
+    `
+  )};
+`;
+
+const bigButtonStyles = css`
+  padding: 1rem;
+
+  ${mediaQueryHelper(
+    'small-desktop',
+    css`
+      padding: 0.75rem;
+    `
+  )};
+
+  ${mediaQueryHelper(
+    'tab-port',
+    css`
+      padding: 0.75rem;
+    `
+  )};
+`;
+
 export default {
   primaryColor,
   secondaryColor,
@@ -95,4 +163,8 @@ export default {
   selectedButtonStyles,
   saveButtonStyles,
   removeButtonStyles,
+  disabledButtonStyles,
+  smallButtonStyles,
+  mediumButtonStyles,
+  bigButtonStyles,
 };

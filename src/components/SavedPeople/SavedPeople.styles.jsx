@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import mediaQueryHelper from '../../style/media-queries';
 
 export const SavedPeopleContainer = styled.div`
+  grid-area: saved;
   display: grid;
   grid-template: auto / auto auto;
   grid-template-areas:

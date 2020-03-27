@@ -1,9 +1,10 @@
-/* eslint-disable no-nested-ternary */
 import React, { useEffect, useState } from 'react';
 
 import Spinner from '../Spinner/Spinner';
 import SearchBox from '../SearchBox/SearchBox';
 import CustomButton from '../CustomButton/CustomButton';
+import Character from './Character';
+import Pagination from './Pagination';
 
 import {
   SearchPeopleContainer,
@@ -14,24 +15,29 @@ import {
   TableBody,
   TableHeader,
   TableScroll,
-  SearchPeopleButtonsContainer,
+  TablePaginationContainer,
 } from './SearchPeople.styles';
 
+// import cardListMock from '../../../__mocks__/cardListMock';
+
 const SearchPeople = () => {
-  const [deviceType, setDeviceType] = useState('');
+  const [viewWidth, setViewWidth] = useState(0);
   const [searchText, setSearchText] = useState('');
   const unsavedPeople = [];
   const loading = false;
 
   useEffect(() => {
     const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    if (vw <= 600) {
-      setDeviceType('small');
-    } else setDeviceType('large');
+    setViewWidth(vw);
   }, []);
 
-  const dataHeaderMarkUp =
-    deviceType === 'small' ? (
+  const handleChange = event => {
+    const { value } = event.target;
+    setSearchText(value);
+  };
+
+  const tableHeaderMarkUp =
+    viewWidth <= 600 ? (
       <tr>
         <th>Name</th>
         <th>Gender</th>
@@ -47,58 +53,19 @@ const SearchPeople = () => {
       </tr>
     );
 
-  const handleChange = event => {
-    const { value } = event.target;
-    setSearchText(value);
-  };
-
-  const dataRowsMarkUp = unsavedPeople.map((char, charIndex) => {
-    if (deviceType === 'small')
-      return (
-        <tr key={charIndex}>
-          <td>{char.name}</td>
-          <td>{char.gender}</td>
-          <td>
-            <SearchPeopleButtonsContainer>
-              <CustomButton
-                type="button"
-                variant="default"
-                size="small"
-                collapse
-                onClick={() => {}}
-              >
-                Details
-              </CustomButton>
-              <CustomButton type="button" variant="save" size="small" onClick={() => {}}>
-                Save
-              </CustomButton>
-            </SearchPeopleButtonsContainer>
-          </td>
-        </tr>
-      );
-    return (
-      <tr key={charIndex}>
-        <td>{char.name}</td>
-        <td>{char.gender}</td>
-        <td>{char.birthYear}</td>
-        <td>{char.eyeColor}</td>
-        <td>
-          <SearchPeopleButtonsContainer>
-            <CustomButton type="button" variant="default" size="small" onClick={() => {}}>
-              Details
-            </CustomButton>
-            <CustomButton type="button" variant="save" size="small" onClick={() => {}}>
-              Save
-            </CustomButton>
-          </SearchPeopleButtonsContainer>
-        </td>
-      </tr>
-    );
-  });
+  const tableBodyMarkUp = unsavedPeople.length ? (
+    unsavedPeople.map((character, characterIndex) => (
+      <Character character={character} viewWidth={viewWidth} key={characterIndex} />
+    ))
+  ) : (
+    <tr>
+      <td colSpan={viewWidth < 600 ? 3 : 5}>All characeters in this page are already saved</td>
+    </tr>
+  );
 
   return (
     <SearchPeopleContainer>
-      {(loading || deviceType === '') && (
+      {(loading || viewWidth === 0) && (
         <SearchPeopleSpinnerContainer>
           <Spinner />
         </SearchPeopleSpinnerContainer>
@@ -112,13 +79,24 @@ const SearchPeople = () => {
           onSearchChange={handleChange}
           label="Search people"
         />
+        <CustomButton
+          type="button"
+          variant="default"
+          size={viewWidth < 1400 ? 'medium' : 'small'}
+          onClick={() => {}}
+        >
+          Search
+        </CustomButton>
       </SearchPeopleSearchBox>
       <TableScroll>
         <SearchPeopleTable>
-          <TableHeader>{dataHeaderMarkUp}</TableHeader>
-          <TableBody>{dataRowsMarkUp}</TableBody>
+          <TableHeader>{tableHeaderMarkUp}</TableHeader>
+          <TableBody>{tableBodyMarkUp}</TableBody>
         </SearchPeopleTable>
       </TableScroll>
+      <TablePaginationContainer>
+        <Pagination />
+      </TablePaginationContainer>
     </SearchPeopleContainer>
   );
 };
