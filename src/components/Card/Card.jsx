@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import { removeCharacter, selectCharacter } from '../../redux/actions/dataActions';
 import getCharImage from '../../helpers/getCharImage';
 
 import CustomButton from '../CustomButton/CustomButton';
@@ -14,9 +16,18 @@ import {
 } from './Card.styles';
 
 const Card = ({ character }) => {
+  const dispatch = useDispatch();
   const { name } = character;
 
   const imageUrl = name && getCharImage(name, '240');
+
+  const handleRemoveCharacter = useCallback(() => {
+    dispatch(removeCharacter(character.name));
+  }, [dispatch, removeCharacter, character]);
+
+  const handleSelectCharacter = useCallback(() => {
+    dispatch(selectCharacter(character));
+  }, [dispatch, selectCharacter, character]);
 
   return (
     <CardContainer>
@@ -25,10 +36,20 @@ const Card = ({ character }) => {
         <CardDetailsTitle>
           {name}
           <CardDetailsButtonsContainer>
-            <CustomButton type="button" variant="default" size="small" onClick={() => {}}>
+            <CustomButton
+              type="button"
+              variant="default"
+              size="small"
+              onClick={handleSelectCharacter}
+            >
               Details
             </CustomButton>
-            <CustomButton type="button" variant="remove" size="small" onClick={() => {}}>
+            <CustomButton
+              type="button"
+              variant="remove"
+              size="small"
+              onClick={handleRemoveCharacter}
+            >
               Remove
             </CustomButton>
           </CardDetailsButtonsContainer>
@@ -41,12 +62,12 @@ const Card = ({ character }) => {
 Card.propTypes = {
   character: PropTypes.shape({
     name: PropTypes.string,
-    height: PropTypes.number,
-    mass: PropTypes.number,
+    height: PropTypes.string,
+    mass: PropTypes.string,
     hairColor: PropTypes.string,
     skinColor: PropTypes.string,
     eyeColor: PropTypes.string,
-    birthYear: PropTypes.number,
+    birthYear: PropTypes.string,
     gender: PropTypes.string,
   }).isRequired,
 };

@@ -54,8 +54,8 @@ export const TableScroll = styled.div`
   grid-area: table;
   padding: 0 0 0 1rem;
   width: 65rem;
-  height: 16rem;
-  overflow-x: hidden;
+  height: 16.5rem;
+  overflow-x: auto;
   overflow-y: auto;
 
   ${mediaQueryHelper(
@@ -71,7 +71,7 @@ export const TableScroll = styled.div`
     'tab-xl',
     css`
       width: 57rem;
-      height: 15rem;
+      height: 15.5rem;
     `
   )};
 
@@ -166,7 +166,7 @@ export const TableHeader = styled.thead`
     top: 0;
     padding: 1rem 0 1rem 1rem;
     text-align: left;
-    background-color: ${({ theme }) => theme.cardColor};
+    background-color: ${({ theme }) => theme.titleColor};
     color: ${({ theme }) => theme.primaryColor};
     width: max-content;
 

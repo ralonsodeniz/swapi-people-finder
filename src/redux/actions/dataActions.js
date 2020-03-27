@@ -1,18 +1,15 @@
+/* eslint-disable no-console */
 import DATA from '../types/dataTypes';
+import { getPageDataFromAPI } from '../helpers/dataHelpers';
 
 export const toogleDataLoading = loadingState => ({
   type: DATA.TOGGLE_DATA_LOADING,
   payload: loadingState,
 });
 
-export const fetchApiStart = url => ({
-  type: DATA.FETCH_API_START,
-  payload: url,
-});
-
-export const fetchApiSuccess = gnomesData => ({
+export const fetchApiSuccess = searchData => ({
   type: DATA.FETCH_API_SUCCESS,
-  payload: gnomesData,
+  payload: searchData,
 });
 
 export const fetchApiFailure = error => ({
@@ -20,12 +17,38 @@ export const fetchApiFailure = error => ({
   payload: error,
 });
 
-export const setGnomeNameSearchField = gnomeName => ({
-  type: DATA.SET_GNOME_NAME_SEARCHFIELD,
-  payload: gnomeName,
+export const saveCharacter = character => ({
+  type: DATA.SAVE_CHARACTER,
+  payload: character,
 });
 
-export const setProfessionSearchField = profession => ({
-  type: DATA.SET_PROFESSION_SEARCHFIELD,
-  payload: profession,
+export const removeCharacter = characterName => ({
+  type: DATA.REMOVE_CHARACTER,
+  payload: characterName,
 });
+
+export const selectCharacter = character => ({
+  type: DATA.SELECT_CHARACTER,
+  payload: character,
+});
+
+export const setFilter = filter => ({
+  type: DATA.SET_FILTER,
+  payload: filter,
+});
+
+export const setSeachText = searchText => ({
+  type: DATA.SET_SEARCH_TEXT,
+  payload: searchText,
+});
+
+export const fetchApiStart = url => async dispatch => {
+  dispatch(toogleDataLoading(true));
+  try {
+    const searchData = await getPageDataFromAPI(url);
+    dispatch(fetchApiSuccess(searchData));
+  } catch (error) {
+    dispatch(fetchApiFailure(error.message));
+    console.log(error);
+  }
+};

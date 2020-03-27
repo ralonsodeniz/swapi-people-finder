@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { fetchApiStart } from '../../redux/actions/dataActions';
 
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import NavBar from '../NavBar/NavBar';
@@ -11,6 +14,12 @@ import GlobalStyle from '../../style/global.styles';
 import AppContainer from './App.styles';
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchApiStart('https://swapi.co/api/people/?search='));
+  }, [dispatch, fetchApiStart]);
+
   return (
     <>
       <GlobalStyle />
