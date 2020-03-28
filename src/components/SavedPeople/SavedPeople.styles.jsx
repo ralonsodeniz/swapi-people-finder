@@ -28,12 +28,13 @@ export const SavedPeopleContainer = styled.div`
 export const SavedPeopleScroll = styled.div`
   grid-area: cardList;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 15rem);
-  grid-gap: 1.25rem;
-  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 12rem);
+  grid-column-gap: 1rem;
+  grid-row-gap: 1.25rem;
+  justify-content: flex-start;
   padding: 0 0 1rem 1rem;
-  width: 65rem;
-  height: 20rem;
+  width: 65.1rem;
+  height: 16.1rem;
   overflow-x: hidden;
   overflow-y: auto;
 
@@ -41,7 +42,7 @@ export const SavedPeopleScroll = styled.div`
     'small-desktop',
     css`
       grid-template-columns: repeat(auto-fill, 8rem);
-      height: 10.5rem;
+      height: 10.1rem;
       width: 45.15rem;
       grid-gap: 1rem;
     `

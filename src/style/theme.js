@@ -27,7 +27,6 @@ const titleStyles = css`
   margin: 0 0 2rem 0;
   font-size: ${xlFontSize};
   font-weight: bold;
-  text-transform: uppercase;
 
   ${mediaQueryHelper(
     'small-desktop',
@@ -80,7 +79,7 @@ const disabledButtonStyles = css`
 `;
 
 const smallButtonStyles = css`
-  padding: 0.5rem;
+  padding: 5px;
 
   ${mediaQueryHelper(
     'small-desktop',
@@ -98,7 +97,7 @@ const smallButtonStyles = css`
 `;
 
 const mediumButtonStyles = css`
-  padding: 1rem;
+  padding: 0.75rem;
 
   ${mediaQueryHelper(
     'small-desktop',

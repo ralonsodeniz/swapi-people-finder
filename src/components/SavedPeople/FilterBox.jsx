@@ -27,7 +27,7 @@ const FilterBox = ({ filterArray }) => {
         name={gender}
         collapse
         selected={selected === gender}
-        size="big"
+        size="mid"
         onClick={handleClick}
       >
         {gender}
@@ -40,7 +40,7 @@ const FilterBox = ({ filterArray }) => {
         name="All"
         collapse
         selected={selected === 'All'}
-        size="big"
+        size="mid"
         onClick={handleClick}
       >
         All

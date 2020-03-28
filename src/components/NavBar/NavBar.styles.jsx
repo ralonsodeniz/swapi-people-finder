@@ -11,6 +11,14 @@ const svgStyles = css`
   color: ${({ theme }) => theme.titleColor};
 
   ${mediaQueryHelper(
+    'small-desktop',
+    css`
+      width: 2.5rem;
+      padding: 3px;
+    `
+  )};
+
+  ${mediaQueryHelper(
     'phone',
     css`
       width: 2.5rem;
@@ -33,14 +41,20 @@ export const NavBarContainer = styled.nav`
   column-gap: 1.5rem;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1.75rem;
+  margin-bottom: 0.75rem;
   background: ${({ theme }) => theme.gradientColorToTop};
+
+  ${mediaQueryHelper(
+    'small-desktop',
+    css`
+      grid-template-rows: 4.5rem;
+    `
+  )};
 
   ${mediaQueryHelper(
     'phone',
     css`
       grid-template-rows: 4.5rem;
-      margin-bottom: 1.5rem;
     `
   )};
 `;
@@ -57,6 +71,13 @@ export const NavBarTitle = styled.h4`
   font-weight: bold;
   font-size: ${({ theme }) => theme.bigFontSize};
   color: ${({ theme }) => theme.titleColor};
+
+  ${mediaQueryHelper(
+    'small-desktop',
+    css`
+      font-size: ${({ theme }) => theme.midFontSize};
+    `
+  )};
 
   ${mediaQueryHelper(
     'phone',

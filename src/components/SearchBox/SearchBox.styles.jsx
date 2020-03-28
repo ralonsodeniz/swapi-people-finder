@@ -17,7 +17,7 @@ const shrinkLabelStyles = css`
 `;
 
 export const SearchBoxContainer = styled.div`
-  padding: 0.5rem;
+  padding: 0.5rem 0;
   position: relative;
   align-self: center;
 `;
