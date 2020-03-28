@@ -13,7 +13,7 @@ const svgStyles = css`
   ${mediaQueryHelper(
     'small-desktop',
     css`
-      width: 2.5rem;
+      width: 2rem;
       padding: 3px;
     `
   )};
@@ -47,7 +47,7 @@ export const NavBarContainer = styled.nav`
   ${mediaQueryHelper(
     'small-desktop',
     css`
-      grid-template-rows: 4.5rem;
+      grid-template-rows: 3.5rem;
     `
   )};
 

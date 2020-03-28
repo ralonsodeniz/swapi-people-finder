@@ -126,5 +126,5 @@ export const CardDetailsTitle = styled.h3`
 
 export const CardDetailsButtonsContainer = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 `;

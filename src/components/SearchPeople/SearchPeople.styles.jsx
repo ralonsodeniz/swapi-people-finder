@@ -199,7 +199,7 @@ export const SearchPeopleSpinnerContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
+  z-index: 999;
 `;
 
 export const SearchPeopleTitle = styled.h2`
@@ -217,6 +217,13 @@ export const SearchPeopleSearchBox = styled.div`
   align-items: center;
   padding-right: 1rem;
   margin: 0 0 0 auto;
+
+  ${mediaQueryHelper(
+    'small-desktop',
+    css`
+      padding-top: 0.5rem;
+    `
+  )};
 
   ${mediaQueryHelper(
     'phone',

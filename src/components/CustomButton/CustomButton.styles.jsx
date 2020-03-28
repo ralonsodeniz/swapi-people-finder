@@ -46,7 +46,7 @@ const getButtonSize = props => {
 };
 
 export default styled.button`
-  width: min-content;
+  width: auto;
   height: min-content;
   letter-spacing: 0.5px;
   padding: 1rem;
