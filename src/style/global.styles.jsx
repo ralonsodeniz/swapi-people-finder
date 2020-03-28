@@ -4,7 +4,6 @@ export default createGlobalStyle`
 html, body, #root {
   height: 100%;
   width: 100%;
-
 }
 
 html {
@@ -19,6 +18,10 @@ body {
   color: ${({ theme }) => theme.secondaryColor};
   margin: 0;
   padding: 0;
+
+  &:fullscreen {
+      background-color: ${({ theme }) => theme.primaryColor};
+    }
 }
 
 code {
@@ -45,10 +48,5 @@ a:active {
 #root{
   display:flex;
   flex-direction:column;
-}
-
-#modal{
-  position: relative;
-  z-index: 999;
 }
 `;
