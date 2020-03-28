@@ -4,7 +4,7 @@ import mediaQueryHelper from '../../style/media-queries';
 
 export const SearchPeopleContainer = styled.div`
   grid-area: search;
-  height: 25rem;
+  height: 23rem;
   display: grid;
   grid-template: auto / auto auto;
   grid-template-areas:
@@ -18,7 +18,7 @@ export const SearchPeopleContainer = styled.div`
   ${mediaQueryHelper(
     'small-desktop',
     css`
-      height: 17.5rem;
+      height: 15rem;
     `
   )};
 
@@ -39,7 +39,7 @@ export const SearchPeopleContainer = styled.div`
   ${mediaQueryHelper(
     'phone',
     css`
-      height: 19rem;
+      height: 21.5rem;
       grid-template: auto / auto;
       grid-template-areas:
         'title'
@@ -54,8 +54,8 @@ export const TableScroll = styled.div`
   grid-area: table;
   padding: 0 0 0 1rem;
   width: 65rem;
-  height: 16.5rem;
-  overflow-x: auto;
+  height: 14rem;
+  overflow-x: hidden;
   overflow-y: auto;
 
   ${mediaQueryHelper(
@@ -164,25 +164,11 @@ export const TableHeader = styled.thead`
   & th {
     position: sticky;
     top: 0;
-    padding: 1rem 0 1rem 1rem;
+    padding: 0.5rem 0 0.5rem 0.5rem;
     text-align: left;
     background-color: ${({ theme }) => theme.titleColor};
     color: ${({ theme }) => theme.primaryColor};
     width: max-content;
-
-    ${mediaQueryHelper(
-      'small-desktop',
-      css`
-        padding: 0.5rem 0 0.5rem 0.5rem;
-      `
-    )};
-
-    ${mediaQueryHelper(
-      'tab-port',
-      css`
-        padding: 0.5rem 0 0.5rem 0.5rem;
-      `
-    )};
   }
 `;
 
@@ -191,21 +177,7 @@ export const TableBody = styled.tbody`
   td {
     width: max-content;
     border: none;
-    padding: 0.5rem 1rem 0.5rem 1rem;
-
-    ${mediaQueryHelper(
-      'small-desktop',
-      css`
-        padding: 0.25rem 0.5rem 0.25rem 0.5rem;
-      `
-    )};
-
-    ${mediaQueryHelper(
-      'tab-port',
-      css`
-        padding: 0.25rem 0.5rem 0.25rem 0.5rem;
-      `
-    )};
+    padding: 0.25rem 0.5rem 0.25rem 0.5rem;
   }
 
   & tr:nth-child(odd) {
@@ -234,8 +206,9 @@ export const SearchPeopleTitle = styled.h2`
   grid-area: title;
   ${({ theme }) => theme.titleStyles};
   padding-left: 1rem;
-  margin: 1rem auto 0.75rem 0;
+  margin: 0.75rem auto 0.75rem 0;
   color: ${({ theme }) => theme.titleColor};
+  height: min-content;
 `;
 
 export const SearchPeopleSearchBox = styled.div`
@@ -243,13 +216,15 @@ export const SearchPeopleSearchBox = styled.div`
   display: flex;
   align-items: center;
   padding-right: 1rem;
-  margin: 1rem 0 0.75rem auto;
+  margin: 0 0 0 auto;
 
   ${mediaQueryHelper(
     'phone',
     css`
-      margin: 0 auto 0.75rem 0;
-      padding: 0 0 0 0.5rem;
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 0 auto 0 0;
+      padding: 0 0 0 1rem;
     `
   )};
 `;

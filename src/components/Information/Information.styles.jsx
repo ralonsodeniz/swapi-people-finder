@@ -29,8 +29,8 @@ export const InformationTitle = styled.h2`
 `;
 
 export const InformationImage = styled.img`
-  width: 20rem;
-  height: 20rem;
+  width: 15.2rem;
+  height: 15.2rem;
   object-fit: cover;
   max-width: 100%;
   border-radius: 50%;
@@ -38,16 +38,8 @@ export const InformationImage = styled.img`
   ${mediaQueryHelper(
     'small-desktop',
     css`
-      width: 10rem;
-      height: 10rem;
-    `
-  )};
-
-  ${mediaQueryHelper(
-    'tab-xl',
-    css`
-      width: 15rem;
-      height: 15rem;
+      width: 9.25rem;
+      height: 9.25rem;
     `
   )};
 

@@ -15,8 +15,15 @@ export default styled.div`
   grid-template-areas:
     'search information'
     'saved information';
-  grid-gap: 3rem;
-  margin-bottom: 10px;
+  grid-gap: 2rem;
+  margin-bottom: 0.75rem;
+
+  ${mediaQueryHelper(
+    'small-desktop',
+    css`
+      grid-gap: 1rem;
+    `
+  )};
 
   ${mediaQueryHelper(
     'tab-xl',
@@ -31,6 +38,8 @@ export default styled.div`
   ${mediaQueryHelper(
     'phone',
     css`
+      justify-items: center;
+      align-items: center;
       grid-template-columns: auto;
       grid-template-areas:
         'search'

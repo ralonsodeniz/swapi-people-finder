@@ -7,8 +7,8 @@ export const CardContainer = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   background-color: transparent;
-  width: 15rem;
-  height: 20rem;
+  width: 12rem;
+  height: 16rem;
   box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 
@@ -40,7 +40,7 @@ export const CardContainer = styled.div`
 export const CardImage = styled.img`
   object-fit: cover;
   object-position: 50% 50%;
-  height: 15rem;
+  height: 12rem;
   border-radius: 5px 5px 0 0;
 
   ${mediaQueryHelper(
@@ -72,7 +72,7 @@ export const CardDetailsContainer = styled.div`
   justify-content: center;
   background-color: ${({ theme }) => theme.titleColor};
   border-radius: 0 0 5px 5px;
-  height: 5rem;
+  height: 4rem;
   text-align: center;
   color: ${({ theme }) => theme.primaryColor};
 

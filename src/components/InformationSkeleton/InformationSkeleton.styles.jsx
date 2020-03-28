@@ -8,8 +8,7 @@ const titlesStyles = css`
 `;
 
 const smallTableStyles = css`
-  padding: 0.5rem;
-  font-size: ${({ theme }) => theme.smallFontSize};
+  padding: 0.63rem;
 `;
 
 export const InformationSkeletonContainer = styled.div`
@@ -29,8 +28,8 @@ export const InformationSkeletonTitle = styled.h2`
 `;
 
 export const InformationSkeletonImage = styled.img`
-  width: 20rem;
-  height: 20rem;
+  width: 16rem;
+  height: 16rem;
   object-fit: cover;
   max-width: 100%;
   border-radius: 50%;
@@ -40,14 +39,6 @@ export const InformationSkeletonImage = styled.img`
     css`
       width: 10rem;
       height: 10rem;
-    `
-  )};
-
-  ${mediaQueryHelper(
-    'tab-xl',
-    css`
-      width: 15rem;
-      height: 15rem;
     `
   )};
 
