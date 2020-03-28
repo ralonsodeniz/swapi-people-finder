@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Card /> tests matches snapshot 1`] = `
+<styled.div>
+  <styled.img
+    alt="character"
+    src="http://facetheforce.today/c3po/240"
+  />
+  <styled.div>
+    <styled.h3>
+      C-3PO
+      <styled.div>
+        <CustomButton
+          collapse={false}
+          onClick={[Function]}
+          selected={false}
+          size="small"
+          type="button"
+          variant="default"
+        >
+          Details
+        </CustomButton>
+        <CustomButton
+          collapse={false}
+          onClick={[Function]}
+          selected={false}
+          size="small"
+          type="button"
+          variant="remove"
+        >
+          Remove
+        </CustomButton>
+      </styled.div>
+    </styled.h3>
+  </styled.div>
+</styled.div>
+`;
