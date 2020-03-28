@@ -3,7 +3,13 @@
 
 export default async () => {
   try {
-    await document.body.requestFullscreen();
+    const docElement = document.documentElement;
+    const requestMethod =
+      docElement.requestFullScreen ||
+      docElement.webkitRequestFullScreen ||
+      docElement.mozRequestFullScreen ||
+      docElement.msRequestFullScreen;
+    if (requestMethod) await requestMethod.call(docElement);
     await screen.orientation.lock('portrait');
   } catch (error) {
     console.log(error);
