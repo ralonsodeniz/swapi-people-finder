@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 
 import DATA from '../types/dataTypes';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   loadingData: false,
   characterCount: 0,
   nextEndpoint: '',

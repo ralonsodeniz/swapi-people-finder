@@ -2,7 +2,7 @@
 import DATA from '../types/dataTypes';
 import { getPageDataFromAPI } from '../helpers/dataHelpers';
 
-export const toogleDataLoading = loadingState => ({
+export const toggleDataLoading = loadingState => ({
   type: DATA.TOGGLE_DATA_LOADING,
   payload: loadingState,
 });
@@ -43,7 +43,7 @@ export const setSeachText = searchText => ({
 });
 
 export const fetchApiStart = url => async dispatch => {
-  dispatch(toogleDataLoading(true));
+  dispatch(toggleDataLoading(true));
   try {
     const searchData = await getPageDataFromAPI(url);
     dispatch(fetchApiSuccess(searchData));

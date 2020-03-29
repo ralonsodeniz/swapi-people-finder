@@ -89,7 +89,7 @@ describe('<SearchPeople /> tests', () => {
       const newSearchBoxValue = wrapper.find('SearchBox').prop('value');
       expect(newSearchBoxValue).toEqual('');
       const actions = store.getActions();
-      const expectedActionToogleDataLoading = dataActions.toogleDataLoading(true);
+      const expectedActionToogleDataLoading = dataActions.toggleDataLoading(true);
       const expectedActionSetSearchText = dataActions.setSeachText(searchBoxValue);
       expect(actions[0]).toEqual(expectedActionToogleDataLoading);
       expect(actions[1]).toEqual(expectedActionSetSearchText);
