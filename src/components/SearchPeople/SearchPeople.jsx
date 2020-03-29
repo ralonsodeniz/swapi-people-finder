@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
@@ -37,26 +37,26 @@ const selectSearchPeopleData = createStructuredSelector({
 const SearchPeople = () => {
   const dispatch = useDispatch();
   const [viewWidth, setViewWidth] = useState(0);
-  const [searchText, setSearchText] = useState('');
+  const [searchField, setSearchField] = useState('');
   const { searchArray, savedArray, loadingData } = useSelector(selectSearchPeopleData);
 
   const filteredSearchArray = getFilteredSearchArray(searchArray, savedArray);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
     setViewWidth(vw);
   }, []);
 
   const handleChange = event => {
     const { value } = event.target;
-    setSearchText(value);
+    setSearchField(value);
   };
 
   const handleSearch = useCallback(() => {
-    dispatch(fetchApiStart(`https://swapi.co/api/people/?search=${searchText}`));
-    dispatch(setSeachText(searchText));
-    setSearchText('');
-  }, [dispatch, searchText, fetchApiStart, setSearchText]);
+    dispatch(fetchApiStart(`https://swapi.co/api/people/?search=${searchField}`));
+    dispatch(setSeachText(searchField));
+    setSearchField('');
+  }, [dispatch, searchField, fetchApiStart, setSearchField]);
 
   const tableHeaderMarkUp =
     viewWidth <= 600 ? (
@@ -70,7 +70,7 @@ const SearchPeople = () => {
         <th>Name</th>
         <th>Gender</th>
         <th>Birth year</th>
-        <th>Eye Color</th>
+        <th>Eye color</th>
         <th />
       </tr>
     );
@@ -95,9 +95,9 @@ const SearchPeople = () => {
       <SearchPeopleTitle>Search people</SearchPeopleTitle>
       <SearchPeopleSearchBox>
         <SearchBox
-          name="searchText"
-          value={searchText}
-          id="searchText"
+          name="searchField"
+          value={searchField}
+          id="searchField"
           onSearchChange={handleChange}
           label="Search people"
         />
