@@ -18,9 +18,7 @@ describe('<Card /> tests', () => {
 
   beforeEach(() => {
     store = configureStore()({});
-
     jest.spyOn(Redux, 'useDispatch').mockImplementation(() => store.dispatch);
-
     wrapper = getWrapper(c3p0);
     store.clearActions();
   });

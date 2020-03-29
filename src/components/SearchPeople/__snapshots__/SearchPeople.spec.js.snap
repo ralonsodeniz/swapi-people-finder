@@ -1,0 +1,225 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SearchPeople /> tests data loading tests matches snapshot 1`] = `
+<styled.div>
+  <styled.div>
+    <Spinner />
+  </styled.div>
+  <styled.h2>
+    Search people
+  </styled.h2>
+  <styled.div>
+    <SearchBox
+      disabled={false}
+      id="searchField"
+      label="Search people"
+      name="searchField"
+      onSearchChange={[Function]}
+      value=""
+    />
+    <CustomButton
+      collapse={false}
+      onClick={[Function]}
+      selected={false}
+      size="small"
+      type="button"
+      variant="default"
+    >
+      Search
+    </CustomButton>
+  </styled.div>
+  <styled.div>
+    <styled.table>
+      <styled.thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Gender
+          </th>
+          <th>
+            Birth year
+          </th>
+          <th>
+            Eye color
+          </th>
+          <th />
+        </tr>
+      </styled.thead>
+      <styled.tbody>
+        <tr>
+          <td
+            colSpan={5}
+          >
+            All characeters in this page are already saved
+          </td>
+        </tr>
+      </styled.tbody>
+    </styled.table>
+  </styled.div>
+  <styled.div>
+    <Pagination />
+  </styled.div>
+</styled.div>
+`;
+
+exports[`<SearchPeople /> tests store with data tests matches snapshot 1`] = `
+<styled.div>
+  <styled.h2>
+    Search people
+  </styled.h2>
+  <styled.div>
+    <SearchBox
+      disabled={false}
+      id="searchField"
+      label="Search people"
+      name="searchField"
+      onSearchChange={[Function]}
+      value=""
+    />
+    <CustomButton
+      collapse={false}
+      onClick={[Function]}
+      selected={false}
+      size="medium"
+      type="button"
+      variant="default"
+    >
+      Search
+    </CustomButton>
+  </styled.div>
+  <styled.div>
+    <styled.table>
+      <styled.thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Gender
+          </th>
+          <th />
+        </tr>
+      </styled.thead>
+      <styled.tbody>
+        <Character
+          character={
+            Object {
+              "birthYear": "112BBY",
+              "eyeColor": "yellow",
+              "gender": "n/a",
+              "hairColor": "n/a",
+              "height": "167",
+              "mass": "75",
+              "name": "C-3PO",
+              "skinColor": "gold",
+            }
+          }
+          key="C-3PO"
+          viewWidth={500}
+        />
+        <Character
+          character={
+            Object {
+              "birthYear": "41.9BBY",
+              "eyeColor": "yellow",
+              "gender": "male",
+              "hairColor": "none",
+              "height": "202",
+              "mass": "136",
+              "name": "Darth Vader",
+              "skinColor": "white",
+            }
+          }
+          key="Darth Vader"
+          viewWidth={500}
+        />
+        <Character
+          character={
+            Object {
+              "birthYear": "52BBY",
+              "eyeColor": "blue",
+              "gender": "male",
+              "hairColor": "brown, grey",
+              "height": "178",
+              "mass": "120",
+              "name": "Owen Lars",
+              "skinColor": "light",
+            }
+          }
+          key="Owen Lars"
+          viewWidth={500}
+        />
+        <Character
+          character={
+            Object {
+              "birthYear": "47BBY",
+              "eyeColor": "blue",
+              "gender": "female",
+              "hairColor": "brown",
+              "height": "165",
+              "mass": "75",
+              "name": "Beru Whitesun lars",
+              "skinColor": "light",
+            }
+          }
+          key="Beru Whitesun lars"
+          viewWidth={500}
+        />
+        <Character
+          character={
+            Object {
+              "birthYear": "unknown",
+              "eyeColor": "red",
+              "gender": "n/a",
+              "hairColor": "n/a",
+              "height": "97",
+              "mass": "32",
+              "name": "R5-D4",
+              "skinColor": "white, red",
+            }
+          }
+          key="R5-D4"
+          viewWidth={500}
+        />
+        <Character
+          character={
+            Object {
+              "birthYear": "24BBY",
+              "eyeColor": "brown",
+              "gender": "male",
+              "hairColor": "black",
+              "height": "183",
+              "mass": "84",
+              "name": "Biggs Darklighter",
+              "skinColor": "light",
+            }
+          }
+          key="Biggs Darklighter"
+          viewWidth={500}
+        />
+        <Character
+          character={
+            Object {
+              "birthYear": "57BBY",
+              "eyeColor": "blue-gray",
+              "gender": "male",
+              "hairColor": "auburn, white",
+              "height": "182",
+              "mass": "77",
+              "name": "Obi-Wan Kenobi",
+              "skinColor": "fair",
+            }
+          }
+          key="Obi-Wan Kenobi"
+          viewWidth={500}
+        />
+      </styled.tbody>
+    </styled.table>
+  </styled.div>
+  <styled.div>
+    <Pagination />
+  </styled.div>
+</styled.div>
+`;

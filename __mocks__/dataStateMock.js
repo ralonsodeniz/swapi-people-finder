@@ -1,4 +1,4 @@
-export default {
+export const dataStore = {
   loadingData: false,
   characterCount: 87,
   nextEndpoint: 'https://swapi.co/api/people/?page=2&search=',
@@ -148,6 +148,19 @@ export default {
     eyeColor: 'red',
     birthYear: '33BBY',
   },
+  searchText: '',
+  error: '',
+};
+
+export const loadingDataStore = {
+  loadingData: true,
+  characterCount: 0,
+  nextEndpoint: '',
+  previousEndpoint: '',
+  searchArray: [],
+  savedFilter: 'All',
+  savedArray: [],
+  characterSelected: null,
   searchText: '',
   error: '',
 };
