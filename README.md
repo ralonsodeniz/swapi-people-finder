@@ -74,7 +74,7 @@ Modal reducer is used for containing the following:
 - A modalData object with modalType string and modalProps object as keys with the data needed by InnerModal to know what component it has to render each time and its props.
   Components shown in the modal are lazy loaded and only imported when they are going to be used. modalType stores the string that tells InnerModal which component to import and modalProps is an object with the props needed by the rendered component.
 
-  We have two actions for the modal reducer:
+We have two actions for the modal reducer:
 
 - openModal that takes modalData with modalType and modalProps keys and sets showModal to true.
 - closeModal that resets modal reducer to its initial state.
