@@ -81,7 +81,11 @@ const SearchPeople = () => {
     ))
   ) : (
     <tr>
-      <td colSpan={viewWidth < 600 ? 3 : 5}>All characeters in this page are already saved</td>
+      <td colSpan={viewWidth < 600 ? 3 : 5}>
+        {!searchArray.length
+          ? 'No results for this search input'
+          : 'All characters in this page are already saved'}
+      </td>
     </tr>
   );
 
