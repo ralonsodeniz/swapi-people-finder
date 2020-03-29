@@ -5,7 +5,7 @@ import { c3p0 } from '../../../__mocks__/charInfoMock';
 import { dataStore } from '../../../__mocks__/dataStateMock';
 
 describe('Data reducer tests', () => {
-  it('initilizes to initial state', () => {
+  it('initializes to initial state', () => {
     expect(dataReducer(undefined, {})).toEqual(INITIAL_STATE);
   });
 

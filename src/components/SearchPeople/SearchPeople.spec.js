@@ -25,7 +25,7 @@ describe('<SearchPeople /> tests', () => {
     fetchApiStart = jest.spyOn(dataActions, 'fetchApiStart');
   });
 
-  describe('store with data tests', () => {
+  describe('Store with data tests', () => {
     beforeEach(() => {
       global.innerWidth = 500;
       global.dispatchEvent(new Event('resize'));
@@ -96,7 +96,7 @@ describe('<SearchPeople /> tests', () => {
     });
   });
 
-  describe('data loading tests', () => {
+  describe('Data loading tests', () => {
     beforeEach(() => {
       global.innerWidth = 1920;
       global.dispatchEvent(new Event('resize'));
@@ -138,7 +138,7 @@ describe('<SearchPeople /> tests', () => {
       const placeholderColSpan = placeholder.prop('colSpan');
       expect(placeholderColSpan).toEqual(5);
       const placeholderText = placeholder.text();
-      expect(placeholderText).toEqual('All characeters in this page are already saved');
+      expect(placeholderText).toEqual('No results for this search input');
     });
   });
 });

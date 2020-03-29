@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SearchPeople /> tests data loading tests matches snapshot 1`] = `
+exports[`<SearchPeople /> tests Data loading tests matches snapshot 1`] = `
 <styled.div>
   <styled.div>
     <Spinner />
@@ -52,7 +52,7 @@ exports[`<SearchPeople /> tests data loading tests matches snapshot 1`] = `
           <td
             colSpan={5}
           >
-            All characeters in this page are already saved
+            No results for this search input
           </td>
         </tr>
       </styled.tbody>
@@ -64,7 +64,7 @@ exports[`<SearchPeople /> tests data loading tests matches snapshot 1`] = `
 </styled.div>
 `;
 
-exports[`<SearchPeople /> tests store with data tests matches snapshot 1`] = `
+exports[`<SearchPeople /> tests Store with data tests matches snapshot 1`] = `
 <styled.div>
   <styled.h2>
     Search people
