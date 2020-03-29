@@ -190,6 +190,7 @@ The complete list of tests is as follows:
   > has one remove small size Remove button that triggrs removeCharacterAction action
 
 - SearchPeople component
+
   -- Store with data tests
 
   > matches snapshot
@@ -204,6 +205,7 @@ The complete list of tests is as follows:
   > renders Spinner and no Characters but a placeholder td with a colSpan of 5
 
 - dataActions tests
+
   -- Sync data actions tests
 
   > toggles to true loadingData
