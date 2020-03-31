@@ -31,7 +31,13 @@ const dataReducer = (state = INITIAL_STATE, action) => {
       };
     case DATA.FETCH_API_FAILURE:
       return {
-        ...INITIAL_STATE,
+        ...state,
+        loadingData: false,
+        characterCount: 0,
+        nextEndpoint: '',
+        previousEndpoint: '',
+        searchArray: [],
+        searchText: '',
         error: action.payload,
       };
     case DATA.SAVE_CHARACTER:
