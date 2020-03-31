@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-indent */
 import React from 'react';
 import { useSelector } from 'react-redux';
 
@@ -26,14 +27,15 @@ const Information = () => {
     characterSelected &&
     Object.entries(characterSelected).reduce((accumulator, detail) => {
       const [key, value] = detail;
-      if (key !== 'name')
-        accumulator.push(
-          <CharacterInfo key={key}>
-            <CharacterInfoTitle>{detailTitles[key]}</CharacterInfoTitle>
-            <span>: {value}</span>
-          </CharacterInfo>
-        );
-      return accumulator;
+      return key !== 'name'
+        ? [
+            ...accumulator,
+            <CharacterInfo key={key}>
+              <CharacterInfoTitle>{detailTitles[key]}</CharacterInfoTitle>
+              <span>: {value}</span>
+            </CharacterInfo>,
+          ]
+        : accumulator;
     }, []);
 
   return characterSelected ? (

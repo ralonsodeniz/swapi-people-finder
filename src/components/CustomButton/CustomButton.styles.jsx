@@ -5,10 +5,11 @@ import mediaQueryHelper from '../../style/media-queries';
 const getButtonColors = props => {
   switch (props.variant) {
     case 'default':
-      if (props.selected) return css``;
-      return css`
-        ${({ theme }) => theme.darkButtonStyles}
-      `;
+      return props.selected
+        ? css``
+        : css`
+            ${({ theme }) => theme.darkButtonStyles}
+          `;
     case 'save':
       return css`
         ${({ theme }) => theme.saveButtonStyles}

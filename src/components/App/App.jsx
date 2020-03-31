@@ -27,7 +27,8 @@ const App = () => {
   }, [dispatch, fetchApiStart, process.env.API_URL]);
 
   const checkIfFullScreen = () => {
-    if (isMobile() && !document.fullscreenElement)
+    isMobile() &&
+      !document.fullscreenElement &&
       dispatch(
         openModal({
           modalType: 'MOBILE_FULLSCREEN_LOCK',

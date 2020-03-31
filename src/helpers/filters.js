@@ -1,25 +1,21 @@
 export const getFilterArray = savedArray => {
-  const filterArray = savedArray.reduce((accumulator, character) => {
+  return savedArray.reduce((accumulator, character) => {
     const { gender } = character;
     const genderExists = accumulator.some(storedGender => storedGender === gender);
-    if (!genderExists) accumulator.push(gender);
-    return accumulator;
+    return !genderExists ? [...accumulator, gender] : accumulator;
   }, []);
-  return filterArray;
 };
 
 export const getFilteredSavedArray = (savedArray, savedFilter) => {
-  if (savedFilter === 'All') return savedArray;
-  const filteredSavedArray = savedArray.filter(character => character.gender === savedFilter);
-  return filteredSavedArray;
+  return savedFilter === 'All'
+    ? savedArray
+    : savedArray.filter(character => character.gender === savedFilter);
 };
 
 export const getFilteredSearchArray = (searchArray, savedArray) => {
-  const filteredSearchArray = searchArray.reduce((accumulator, character) => {
+  return searchArray.reduce((accumulator, character) => {
     const { name } = character;
     const characterExists = savedArray.some(character => character.name === name);
-    if (!characterExists) accumulator.push(character);
-    return accumulator;
+    return !characterExists ? [...accumulator, character] : accumulator;
   }, []);
-  return filteredSearchArray;
 };

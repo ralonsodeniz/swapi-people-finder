@@ -6,9 +6,10 @@ const OnClickOutside = ({ children, action, enabled }) => {
 
   const handleClickOuside = useCallback(
     event => {
-      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-        if (action !== undefined) action();
-      }
+      wrapperRef.current &&
+        !wrapperRef.current.contains(event.target) &&
+        action !== undefined &&
+        action();
     },
     [action]
   );

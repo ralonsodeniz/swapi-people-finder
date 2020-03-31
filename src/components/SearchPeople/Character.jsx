@@ -19,29 +19,27 @@ const Character = ({ character, viewWidth }) => {
     dispatch(selectCharacter(character));
   }, [dispatch, selectCharacter, character]);
 
-  if (viewWidth <= 600)
-    return (
-      <tr>
-        <td>{character.name}</td>
-        <td>{character.gender}</td>
-        <td>
-          <SearchPeopleButtonsContainer>
-            <CustomButton
-              type="button"
-              variant="default"
-              size="small"
-              onClick={handleSelectCharacter}
-            >
-              Details
-            </CustomButton>
-            <CustomButton type="button" variant="save" size="small" onClick={handleSaveCharacter}>
-              Save
-            </CustomButton>
-          </SearchPeopleButtonsContainer>
-        </td>
-      </tr>
-    );
-  return (
+  return viewWidth <= 600 ? (
+    <tr>
+      <td>{character.name}</td>
+      <td>{character.gender}</td>
+      <td>
+        <SearchPeopleButtonsContainer>
+          <CustomButton
+            type="button"
+            variant="default"
+            size="small"
+            onClick={handleSelectCharacter}
+          >
+            Details
+          </CustomButton>
+          <CustomButton type="button" variant="save" size="small" onClick={handleSaveCharacter}>
+            Save
+          </CustomButton>
+        </SearchPeopleButtonsContainer>
+      </td>
+    </tr>
+  ) : (
     <tr>
       <td>{character.name}</td>
       <td>{character.gender}</td>
