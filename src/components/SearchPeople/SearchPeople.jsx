@@ -9,6 +9,7 @@ import {
 } from '../../redux/reducers/dataReducer';
 import { fetchApiStart, setSeachText } from '../../redux/actions/dataActions';
 import { getFilteredSearchArray } from '../../helpers/filters';
+import useDeviceType from '../../helpers/useDeviceType';
 
 import Spinner from '../Spinner/Spinner';
 import SearchBox from '../SearchBox/SearchBox';
@@ -36,16 +37,12 @@ const selectSearchPeopleData = createStructuredSelector({
 
 const SearchPeople = () => {
   const dispatch = useDispatch();
-  const [viewWidth, setViewWidth] = useState(0);
   const [searchField, setSearchField] = useState('');
   const { searchArray, savedArray, loadingData } = useSelector(selectSearchPeopleData);
 
   const filteredSearchArray = getFilteredSearchArray(searchArray, savedArray);
 
-  React.useEffect(() => {
-    const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    setViewWidth(vw);
-  }, []);
+  const deviceType = useDeviceType();
 
   const handleChange = event => {
     const { value } = event.target;
@@ -59,7 +56,7 @@ const SearchPeople = () => {
   }, [dispatch, searchField, fetchApiStart, setSearchField]);
 
   const tableHeaderMarkUp =
-    viewWidth <= 600 ? (
+    deviceType === 'phone' || deviceType === 'phone-xs' ? (
       <tr>
         <th>Name</th>
         <th>Gender</th>
@@ -77,11 +74,11 @@ const SearchPeople = () => {
 
   const tableBodyMarkUp = filteredSearchArray.length ? (
     filteredSearchArray.map(character => (
-      <Character character={character} viewWidth={viewWidth} key={character.name} />
+      <Character character={character} deviceType={deviceType} key={character.name} />
     ))
   ) : (
     <tr>
-      <td colSpan={viewWidth < 600 ? 3 : 5}>
+      <td colSpan={deviceType === 'phone' || deviceType === 'phone-xs' ? 3 : 5}>
         {!searchArray.length
           ? 'No results for this search input'
           : 'All characters in this page are already saved'}
@@ -91,7 +88,7 @@ const SearchPeople = () => {
 
   return (
     <SearchPeopleContainer>
-      {(loadingData || viewWidth === 0) && (
+      {(loadingData || !deviceType) && (
         <SearchPeopleSpinnerContainer>
           <Spinner />
         </SearchPeopleSpinnerContainer>
@@ -108,7 +105,7 @@ const SearchPeople = () => {
         <CustomButton
           type="button"
           variant="default"
-          size={viewWidth < 1400 ? 'medium' : 'small'}
+          size={deviceType === 'big-desktop' ? 'medium' : 'small'}
           onClick={handleSearch}
         >
           Search
