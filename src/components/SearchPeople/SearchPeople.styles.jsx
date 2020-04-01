@@ -160,7 +160,7 @@ export const SearchPeopleTable = styled.table`
   )};
 `;
 
-export const TableHeader = styled.thead`
+export const TableHeaderContainer = styled.thead`
   & th {
     position: sticky;
     top: 0;
@@ -172,7 +172,7 @@ export const TableHeader = styled.thead`
   }
 `;
 
-export const TableBody = styled.tbody`
+export const TableBodyContainer = styled.tbody`
   & th,
   td {
     width: max-content;

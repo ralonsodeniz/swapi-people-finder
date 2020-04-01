@@ -14,8 +14,9 @@ import useDeviceType from '../../helpers/useDeviceType';
 import Spinner from '../Spinner/Spinner';
 import SearchBox from '../SearchBox/SearchBox';
 import CustomButton from '../CustomButton/CustomButton';
-import Character from './Character';
 import Pagination from './Pagination';
+import TableHeader from './TableHeader';
+import TableBody from './TableBody';
 
 import {
   SearchPeopleContainer,
@@ -23,8 +24,8 @@ import {
   SearchPeopleSpinnerContainer,
   SearchPeopleTable,
   SearchPeopleTitle,
-  TableBody,
-  TableHeader,
+  TableBodyContainer,
+  TableHeaderContainer,
   TableScroll,
   TablePaginationContainer,
 } from './SearchPeople.styles';
@@ -55,37 +56,6 @@ const SearchPeople = () => {
     setSearchField('');
   }, [dispatch, searchField, fetchApiStart, setSearchField]);
 
-  const tableHeaderMarkUp =
-    deviceType === 'phone' || deviceType === 'phone-xs' ? (
-      <tr>
-        <th>Name</th>
-        <th>Gender</th>
-        <th />
-      </tr>
-    ) : (
-      <tr>
-        <th>Name</th>
-        <th>Gender</th>
-        <th>Birth year</th>
-        <th>Eye color</th>
-        <th />
-      </tr>
-    );
-
-  const tableBodyMarkUp = filteredSearchArray.length ? (
-    filteredSearchArray.map(character => (
-      <Character character={character} deviceType={deviceType} key={character.name} />
-    ))
-  ) : (
-    <tr>
-      <td colSpan={deviceType === 'phone' || deviceType === 'phone-xs' ? 3 : 5}>
-        {!searchArray.length
-          ? 'No results for this search input'
-          : 'All characters in this page are already saved'}
-      </td>
-    </tr>
-  );
-
   return (
     <SearchPeopleContainer>
       {(loadingData || !deviceType) && (
@@ -113,8 +83,20 @@ const SearchPeople = () => {
       </SearchPeopleSearchBox>
       <TableScroll>
         <SearchPeopleTable>
-          <TableHeader>{tableHeaderMarkUp}</TableHeader>
-          <TableBody>{tableBodyMarkUp}</TableBody>
+          {deviceType && (
+            <>
+              <TableHeaderContainer>
+                <TableHeader deviceType={deviceType} />
+              </TableHeaderContainer>
+              <TableBodyContainer>
+                <TableBody
+                  deviceType={deviceType}
+                  filteredSearchArray={filteredSearchArray}
+                  searchArray={searchArray}
+                />
+              </TableBodyContainer>
+            </>
+          )}
         </SearchPeopleTable>
       </TableScroll>
       <TablePaginationContainer>
