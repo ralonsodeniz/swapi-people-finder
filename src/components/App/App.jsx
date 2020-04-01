@@ -2,9 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchApiStart } from '../../redux/actions/dataActions';
-import { openModal } from '../../redux/actions/modalActions';
-import isMobile from '../../helpers/isMobile';
 import { selectShowModal } from '../../redux/reducers/modalReducer';
+import useMobileFullScreen from '../../helpers/useMobileFullScreen';
 
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import NavBar from '../NavBar/NavBar';
@@ -22,27 +21,11 @@ const App = () => {
   const dispatch = useDispatch();
   const showModal = useSelector(selectShowModal);
 
+  useMobileFullScreen();
+
   useEffect(() => {
     dispatch(fetchApiStart(process.env.API_URL));
   }, [dispatch, fetchApiStart, process.env.API_URL]);
-
-  const checkIfFullScreen = () => {
-    isMobile() &&
-      !document.fullscreenElement &&
-      dispatch(
-        openModal({
-          modalType: 'MOBILE_FULLSCREEN_LOCK',
-        })
-      );
-  };
-
-  useEffect(() => {
-    checkIfFullScreen();
-    document.addEventListener('fullscreenchange', checkIfFullScreen);
-    return () => {
-      document.removeEventListener('fullscreenchange', checkIfFullScreen);
-    };
-  }, []);
 
   return (
     <>
