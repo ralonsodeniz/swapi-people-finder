@@ -8,7 +8,7 @@ import CustomButton from '../CustomButton/CustomButton';
 
 import { SearchPeopleButtonsContainer } from './SearchPeople.styles';
 
-const Character = ({ character, viewWidth }) => {
+const Character = ({ character, deviceType }) => {
   const dispatch = useDispatch();
 
   const handleSaveCharacter = useCallback(() => {
@@ -19,7 +19,7 @@ const Character = ({ character, viewWidth }) => {
     dispatch(selectCharacter(character));
   }, [dispatch, selectCharacter, character]);
 
-  return viewWidth <= 600 ? (
+  return deviceType === 'phone' || deviceType === 'phone-xs' ? (
     <tr>
       <td>{character.name}</td>
       <td>{character.gender}</td>
@@ -75,7 +75,7 @@ Character.propTypes = {
     birthYear: PropTypes.string,
     gender: PropTypes.string,
   }).isRequired,
-  viewWidth: PropTypes.number.isRequired,
+  deviceType: PropTypes.string.isRequired,
 };
 
 export default Character;
