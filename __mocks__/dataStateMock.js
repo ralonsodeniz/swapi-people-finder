@@ -1,7 +1,7 @@
 export const dataStore = {
   loadingData: false,
   characterCount: 87,
-  nextEndpoint: 'https://swapi.co/api/people/?page=2&search=',
+  nextEndpoint: 'https://swapi.dev/api/people/?page=2&search=',
   previousEndpoint: null,
   searchArray: [
     {

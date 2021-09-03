@@ -80,8 +80,8 @@ describe('Data actions tests', () => {
     });
 
     it('dispatches fetchApiStart, triggers toogleDataLoading, gets data from the api and dispatches fetchApiSuccess with the response', async () => {
-      mock.onGet('https://swapi.co/api/people/?search=').reply(200, dataFromApiMock);
-      await store.dispatch(dataActions.fetchApiStart('https://swapi.co/api/people/?search='));
+      mock.onGet('https://swapi.dev/api/people/?search=').reply(200, dataFromApiMock);
+      await store.dispatch(dataActions.fetchApiStart('https://swapi.dev/api/people/?search='));
       const expectedToggleDataLoading = dataActions.toggleDataLoading(true);
       const expectedFetchApiSuccess = dataActions.fetchApiSuccess(dataProcessedMock);
       const actions = store.getActions();
@@ -90,7 +90,7 @@ describe('Data actions tests', () => {
     });
 
     it('dispatches fetchApiStart, triggers toogleDataLoading, fails to get data from the api and dispatches fetchApiFailure with the error', async () => {
-      mock.onGet('https://swapi.co/api/people/?search=').reply(200, dataFromApiMock);
+      mock.onGet('https://swapi.dev/api/people/?search=').reply(200, dataFromApiMock);
       await store.dispatch(dataActions.fetchApiStart('https://swap.co/ap/peopl/?search='));
       const expectedToggleDataLoading = dataActions.toggleDataLoading(true);
       const expectedFetchApiFailure = dataActions.fetchApiFailure(
