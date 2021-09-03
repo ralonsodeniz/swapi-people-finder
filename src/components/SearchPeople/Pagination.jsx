@@ -43,7 +43,7 @@ const Pagination = () => {
       } else if (selectedPage !== pageNumber) {
         setSelectedPage(pageNumber);
         dispatch(
-          fetchApiStart(`https://swapi.co/api/people/?search=${searchText}&page=${pageNumber}`)
+          fetchApiStart(`https://swapi.dev/api/people/?search=${searchText}&page=${pageNumber}`)
         );
       }
     },

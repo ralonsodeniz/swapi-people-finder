@@ -170,7 +170,7 @@ When tested in the dataActions tests **_axios-mock-adapter_** is used to mock th
 
 ```
     const mock = new MockAdapter(axios);
-    mock.onGet('https://swapi.co/api/people/?search=').reply(200, dataFromApiMock);
+    mock.onGet('https://swapi.dev/api/people/?search=').reply(200, dataFromApiMock);
 
 ```
 

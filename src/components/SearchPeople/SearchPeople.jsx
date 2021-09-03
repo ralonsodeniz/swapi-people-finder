@@ -51,7 +51,7 @@ const SearchPeople = () => {
   };
 
   const handleSearch = useCallback(() => {
-    dispatch(fetchApiStart(`https://swapi.co/api/people/?search=${searchField}`));
+    dispatch(fetchApiStart(`https://swapi.dev/api/people/?search=${searchField}`));
     dispatch(setSeachText(searchField));
     setSearchField('');
   }, [dispatch, searchField, fetchApiStart, setSearchField]);

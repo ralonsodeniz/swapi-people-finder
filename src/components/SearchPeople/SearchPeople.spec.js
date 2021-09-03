@@ -84,7 +84,7 @@ describe('<SearchPeople /> tests', () => {
       expect(button.length).toEqual(1);
       button.simulate('click');
       expect(fetchApiStart).toHaveBeenCalledWith(
-        `https://swapi.co/api/people/?search=${searchBoxValue}`
+        `https://swapi.dev/api/people/?search=${searchBoxValue}`
       );
       const newSearchBoxValue = wrapper.find('SearchBox').prop('value');
       expect(newSearchBoxValue).toEqual('');
