@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default () => {
   const [deviceType, setDeviceType] = useState(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 
     switch (true) {
@@ -25,7 +25,7 @@ export default () => {
       case vw <= 1370:
         setDeviceType('small-desktop');
         break;
-      case vw >= 1800:
+      case vw > 1370:
         setDeviceType('big-desktop');
         break;
       default:
